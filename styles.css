@@ -13,10 +13,10 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/262524/pexels-photo-262524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background: linear-gradient(rgba(0, 0, 0, 0.795), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/262524/pexels-photo-262524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-size: cover;
     background-position: bottom;
-    height: 60vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,7 +86,19 @@ body {
 .bundle-image {
     width: 100%;
     height: 200px;
-    background: #E5E5E5;
+    overflow: hidden;
+    background-color: #f5f5f5; /* Fallback color while image loads */
+}
+
+.bundle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.bundle-card:hover .bundle-image img {
+    transform: scale(1.05);
 }
 
 .bundle-content {
@@ -99,7 +111,8 @@ body {
 
 /* Modal */
 .modal {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -107,9 +120,13 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    transition: visibility 0s linear 0.3s, opacity 0.3s;
 }
 
 .modal.active {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,6 +141,12 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
+    transform: scale(0.7);
+    transition: transform 0.3s;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
 }
 
 .close-modal {
@@ -242,4 +265,9 @@ button:hover {
     padding-top: 3rem;
     color: #E5E5E5;
     font-size: 0.875rem;
+}
+
+.modal .bundle-image {
+    height: 300px;
+    margin-bottom: 1rem;
 }

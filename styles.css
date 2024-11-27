@@ -231,9 +231,14 @@ button:hover {
 
 .footer-logo {
     width: 120px;
-    height: 40px;
-    background: #333;
+    height: auto;
     margin-bottom: 1rem;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .footer-section h4 {

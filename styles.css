@@ -13,7 +13,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.795), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/262524/pexels-photo-262524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background: linear-gradient(rgba(0, 0, 0, 0.795), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-size: cover;
     background-position: bottom;
     height: 80vh;

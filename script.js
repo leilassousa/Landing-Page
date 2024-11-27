@@ -2,20 +2,20 @@
 const bundles = [
     {
         id: 1,
-        name: "Basketball Starter Pack",
-        description: "Complete basketball equipment set for teams",
+        name: "Indoor Soccer Starter Pack",
+        description: "Complete indoor soccer equipment set for teams",
         price: "$999",
-        image: "https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg",
-        modalImage: "https://images.pexels.com/photos/945471/pexels-photo-945471.jpeg",
-        items: ["10 Basketballs", "2 Portable Hoops", "Training Cones", "Whistle Set"]
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
+        items: ["10 Soccer Balls", "2 Portable Hoops", "Training Cones", "Whistle Set"]
     },
     {
         id: 2,
         name: "Soccer Team Bundle",
         description: "Everything needed for a soccer team setup",
         price: "$1299",
-        image: "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg",
-        modalImage: "https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
         items: ["15 Soccer Balls", "Goal Posts", "Training Vests", "Corner Flags"]
     },
     {
@@ -23,8 +23,8 @@ const bundles = [
         name: "Volleyball Set",
         description: "Professional volleyball equipment package",
         price: "$899",
-        image: "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg",
-        modalImage: "https://images.pexels.com/photos/945089/pexels-photo-945089.jpeg",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
         items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
     },
     {
@@ -32,8 +32,8 @@ const bundles = [
     name: "Volleyball Set",
     description: "Professional volleyball equipment package",
     price: "$899",
-    image: "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg",
-    modalImage: "https://images.pexels.com/photos/945089/pexels-photo-945089.jpeg",
+    image: "images/product-image.png",
+    modalImage: "images/hero-image.png",
     items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
 },
 {
@@ -41,8 +41,8 @@ const bundles = [
     name: "Volleyball Set",
     description: "Professional volleyball equipment package",
     price: "$899",
-    image: "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg",
-    modalImage: "https://images.pexels.com/photos/945089/pexels-photo-945089.jpeg",
+    image: "images/product-image.png",
+    modalImage: "images/hero-image.png",
     items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
 },
 {
@@ -50,8 +50,8 @@ const bundles = [
     name: "Volleyball Set",
     description: "Professional volleyball equipment package",
     price: "$899",
-    image: "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg",
-    modalImage: "https://images.pexels.com/photos/945089/pexels-photo-945089.jpeg",
+    image: "images/product-image.png",
+    modalImage: "images/hero-image.png",
     items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
 },
 {
@@ -59,8 +59,8 @@ const bundles = [
     name: "Volleyball Set",
     description: "Professional volleyball equipment package",
     price: "$899",
-    image: "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg",
-    modalImage: "https://images.pexels.com/photos/945089/pexels-photo-945089.jpeg",
+    image: "images/product-image.png",
+    modalImage: "images/hero-image.png",
     items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
 },
 {
@@ -68,8 +68,8 @@ const bundles = [
     name: "Volleyball Set",
     description: "Professional volleyball equipment package",
     price: "$899",
-    image: "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg",
-    modalImage: "https://images.pexels.com/photos/945089/pexels-photo-945089.jpeg",
+    image: "images/product-image.png",
+    modalImage: "images/hero-image.png",
     items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
 },
 {
@@ -77,8 +77,8 @@ const bundles = [
     name: "Volleyball Set",
     description: "Professional volleyball equipment package",
     price: "$899",
-    image: "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg",
-    modalImage: "https://images.pexels.com/photos/945089/pexels-photo-945089.jpeg",
+    image: "images/product-image.png",
+    modalImage: "images/hero-image.png",
     items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
 },
 ];

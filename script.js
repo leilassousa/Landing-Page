@@ -1,112 +1,9 @@
-// Sample bundle data with actual image URLs
-const bundles = [
-    {
-        id: 1,
-        name: "Indoor Soccer Starter Pack",
-        description: "Complete indoor soccer equipment set for teams",
-        price: "$999",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["10 Soccer Balls", "2 Portable Hoops", "Training Cones", "Whistle Set"]
-    },
-    {
-        id: 2,
-        name: "Soccer Team Bundle",
-        description: "Everything needed for a soccer team setup",
-        price: "$1299",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["15 Soccer Balls", "Goal Posts", "Training Vests", "Corner Flags"]
-    },
-    {
-        id: 3,
-        name: "Volleyball Set",
-        description: "Professional volleyball equipment package",
-        price: "$899",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-    },
-    {
-    id: 4,
-    name: "Volleyball Set",
-    description: "Professional volleyball equipment package",
-    price: "$899",
-    image: "images/product-image.png",
-    modalImage: "images/hero-image.png",
-    items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-},
-{
-    id: 5,
-    name: "Volleyball Set",
-    description: "Professional volleyball equipment package",
-    price: "$899",
-    image: "images/product-image.png",
-    modalImage: "images/hero-image.png",
-    items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-},
-{
-    id: 6,
-    name: "Volleyball Set",
-    description: "Professional volleyball equipment package",
-    price: "$899",
-    image: "images/product-image.png",
-    modalImage: "images/hero-image.png",
-    items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-},
-{
-    id: 7,
-    name: "Volleyball Set",
-    description: "Professional volleyball equipment package",
-    price: "$899",
-    image: "images/product-image.png",
-    modalImage: "images/hero-image.png",
-    items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-},
-{
-    id: 8,
-    name: "Volleyball Set",
-    description: "Professional volleyball equipment package",
-    price: "$899",
-    image: "images/product-image.png",
-    modalImage: "images/hero-image.png",
-    items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-},
-{
-    id: 9,
-    name: "Volleyball Set",
-    description: "Professional volleyball equipment package",
-    price: "$899",
-    image: "images/product-image.png",
-    modalImage: "images/hero-image.png",
-    items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-},
-];
-
-function createBundleCard(bundle) {
-    console.log('Creating card for bundle:', bundle.name); // Debug log
-    return `
-        <div class="bundle-card" data-bundle-id="${bundle.id}">
-            <div class="bundle-image">
-                <img src="${bundle.image}" alt="${bundle.name} Bundle">
-            </div>
-            <div class="bundle-content">
-                <h3>${bundle.name}</h3>
-                <p>${bundle.description}</p>
-                <p><strong>${bundle.price}</strong></p>
-                <button onclick="showBundleDetails(${JSON.stringify(bundle).replace(/"/g, '&quot;')})">
-                    Learn More
-                </button>
-            </div>
-        </div>
-    `;
-}
-
-// Render bundles
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Loading bundles...'); // Log for debugging
     const bundlesGrid = document.getElementById('bundlesGrid');
-    bundlesGrid.innerHTML = bundles.map(bundle => createBundleCard(bundle)).join('');
+    if (bundlesGrid) {
+        bundlesGrid.innerHTML = bundles.map(bundle => createBundleCard(bundle)).join('');
+    }
 
     // Add click event listeners to all bundle cards
     document.querySelectorAll('.bundle-card').forEach(card => {
@@ -115,6 +12,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const bundle = bundles.find(b => b.id === parseInt(bundleId));
             if (bundle) {
                 showBundleDetails(bundle);
+            }
+        });
+    });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Update smooth scroll for contact button
+    document.querySelectorAll('a[href*="#contact"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // Only prevent default if we're on the same page
+            if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+                e.preventDefault();
+                const contactSection = document.querySelector(this.getAttribute('href').split('#')[1]);
+                if (contactSection) {
+                    contactSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
             }
         });
     });
@@ -168,3 +98,80 @@ modal.addEventListener('click', (event) => {
         closeModalHandler();
     }
 });
+
+// Sample bundle data with actual image URLs
+const bundles = [
+    {
+        id: 1,
+        name: "Indoor Soccer Starter Pack",
+        description: "Complete indoor soccer equipment set for teams",
+        price: "$999",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
+        items: ["10 Soccer Balls", "2 Portable Hoops", "Training Cones", "Whistle Set"]
+    },
+    {
+        id: 2,
+        name: "Soccer Team Bundle",
+        description: "Everything needed for a soccer team setup",
+        price: "$1299",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
+        items: ["15 Soccer Balls", "Goal Posts", "Training Vests", "Corner Flags"]
+    },
+    {
+        id: 3,
+        name: "Volleyball Set",
+        description: "Professional volleyball equipment package",
+        price: "$899",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
+        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
+    },
+    {
+        id: 4,
+        name: "Volleyball Set",
+        description: "Professional volleyball equipment package",
+        price: "$899",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
+        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
+    },
+    {
+        id: 5,
+        name: "Volleyball Set",
+        description: "Professional volleyball equipment package",
+        price: "$899",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
+        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
+    },
+    {
+        id: 6,
+        name: "Volleyball Set",
+        description: "Professional volleyball equipment package",
+        price: "$899",
+        image: "images/product-image.png",
+        modalImage: "images/hero-image.png",
+        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
+    }
+];
+
+function createBundleCard(bundle) {
+    console.log('Creating card for bundle:', bundle.name); // Debug log
+    return `
+        <div class="bundle-card" data-bundle-id="${bundle.id}">
+            <div class="bundle-image">
+                <img src="${bundle.image}" alt="${bundle.name} Bundle">
+            </div>
+            <div class="bundle-content">
+                <h3>${bundle.name}</h3>
+                <p>${bundle.description}</p>
+                <p><strong>${bundle.price}</strong></p>
+                <button onclick="showBundleDetails(${JSON.stringify(bundle).replace(/"/g, '&quot;')})">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    `;
+}

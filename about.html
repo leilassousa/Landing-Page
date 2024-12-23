@@ -7,21 +7,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="images/mylogo.png" alt="Company Logo">
+                <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" style="width: 170px;">
             </a>
-            <button class="mobile-menu-btn">☰</button>
-            <div class="nav-right">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <div class="nav-right" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="catalogue.html">Catalogue</a></li>
-                    <li><a href="index.html#contact" class="nav-contact-btn">Contact Us</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="store.html">STORE</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
                 </ul>
             </div>
         </div>
@@ -30,25 +31,88 @@
     <!-- About Us Content Section -->
     <section class="about-section">
         <div class="about-container">
-            <h1>About Us</h1>
+            <h1>PENALTY: TEAM UP TO WIN!</h1>
             <div class="about-content">
                 <div class="placeholder-message">
-                    <h2>Your Company Info Here</h2>
-                    <p>This section should include:</p>
                     <ul>
-                        <li>Company history and background</li>
-                        <li>Mission and values</li>
-                        <li>Team information</li>
-                        <li>What makes your company unique</li>
-                        <li>Your commitment to quality sports equipment</li>
+                        <p>We’re a Brazilian sports brand founded in 1970 in São Paulo, known for our quality and innovation, especially in soccer balls. Back in the 80s, we shook up the game by introducing the first ball with 'Termotec' technology. This heat-fusion process bonded panels without stitching, making balls tougher and more reliable. That breakthrough cemented Penalty as a leader in ball manufacturing.</p>
+                        <p>But we’re not just about balls. Our cleats, like the popular Matís and S11 models, are loved by both pros and amateurs. We also offer gear for various sports, from beach tennis rackets to goalkeeper gloves.</p>
+                        <p>Recently, we’ve doubled down on innovation, launching products designed to meet athletes' high standards. And we’re committed to sustainability, using recyclable materials and supporting social causes. Penalty is now a global name in sports equipment, offering high-quality products at accessible prices, helping athletes everywhere play their best.</p>
+                        <h2>Balls</h2>
+                        <p>Penalty is the go-to brand for sports balls, whether you’re a pro or just playing for fun. Known for exceptional quality, our balls are tailored for sports like soccer, volleyball, and basketball, delivering top-notch performance and durability.</p>
+                        <p>Playing with a Penalty ball isn’t just about the game—it also helps kids develop teamwork and decision-making skills. By choosing Penalty, you’re investing in tradition, quality, and unforgettable moments on the field.</p>
+                        <h2>Shoes</h2>
+                        <p>Choosing Penalty shoes comes with some big perks:</p>
+                        <li>Superior Quality: Built with high-performance materials for durability and comfort.</li>
+                        <li>Advanced Technology: Features like soles designed for better grip and control.</li>
+                        <p>We’ve got cleats for every player and surface, whether you’re just starting or competing professionally. And with international recognition, Penalty cleats are a trusted choice worldwide.</p>                        
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Hero Image Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="images\Hero_footer.jpg" alt="Penalty Sports Equipment">
+            </div>
+            <div class="hero-overlay">
+                <h2>QUALITY SPORTS EQUIPMENT SINCE 1970</h2>
+                <p>Empowering athletes with innovative gear for over 50 years</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
+         <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images\PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
+                </div>
+                <p>TEAM UP TO WIN!</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="store.html">Catalogue</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#terms">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul class="footer-links">
+                    <li>Email: info@example.com</li>
+                    <li>Phone: (555) 123-4567</li>
+                    <li>Address: 123 Sports Ave,</li>
+                    <li>City, State 12345</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
+        </div>
+    </footer>
     <!-- Copy the same footer from index.html -->
     <script src="script.js"></script>
+    <script src="navbar.js"></script>
 </body>
 </html> 

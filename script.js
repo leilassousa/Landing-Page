@@ -1,177 +1,134 @@
+// Import products from central source
+import { products } from './products.js';
+
+// Debug logging function
+function log(message) {
+    console.log(message);
+}
+
+// Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Loading bundles...'); // Log for debugging
+    log('Initializing page...');
+    displayHighlightedProducts();
+    initializeProductModal();
+    initializeCarousel();
+    initializeNavigation();
+});
+
+// Display highlighted products
+function displayHighlightedProducts() {
+    log('Displaying highlighted products...');
     const bundlesGrid = document.getElementById('bundlesGrid');
-    if (bundlesGrid) {
-        bundlesGrid.innerHTML = bundles.map(bundle => createBundleCard(bundle)).join('');
+    
+    if (!bundlesGrid) {
+        console.error('Bundles grid container not found!');
+        return;
     }
 
-    // Add click event listeners to all bundle cards
-    document.querySelectorAll('.bundle-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const bundleId = card.dataset.bundleId;
-            const bundle = bundles.find(b => b.id === parseInt(bundleId));
-            if (bundle) {
-                showBundleDetails(bundle);
-            }
-        });
+    // Clear existing content
+    bundlesGrid.innerHTML = '';
+
+    // Filter and display highlighted products
+    const highlightedProducts = products.filter(product => product.highlighted);
+    log(`Found ${highlightedProducts.length} highlighted products`);
+
+    highlightedProducts.forEach(product => {
+        const card = createProductCard(product);
+        bundlesGrid.appendChild(card);
+    });
+}
+
+// Create product card
+function createProductCard(product) {
+    log(`Creating card for product: ${product.name}`);
+    
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+        <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+        </div>
+        <div class="product-info">
+            <h3>${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            <div class="product-price">${product.price}</div>
+            <button class="view-details-btn" data-product-id="${product.id}">View Details</button>
+        </div>
+    `;
+
+    // Add click event for the view details button
+    const viewDetailsBtn = card.querySelector('.view-details-btn');
+    viewDetailsBtn.addEventListener('click', () => showProductModal(product));
+
+    return card;
+}
+
+// Show product modal
+function showProductModal(product) {
+    log(`Showing modal for product: ${product.name}`);
+    
+    const modal = document.getElementById('productModal');
+    const modalHeader = modal.querySelector('.modal-header');
+    const modalBody = modal.querySelector('.modal-body');
+    const modalFooter = modal.querySelector('.modal-footer');
+
+    modalHeader.innerHTML = `<h2>${product.name}</h2>`;
+    
+    modalBody.innerHTML = `
+        <div class="modal-product-content">
+            <div class="modal-product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="modal-product-details">
+                <p>${product.description}</p>
+                <h4>Features:</h4>
+                <ul>
+                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <div class="modal-product-price">
+                    <strong>Price:</strong> ${product.price}
+                </div>
+            </div>
+        </div>
+    `;
+
+    modalFooter.innerHTML = `
+        <button class="contact-btn">Contact for Quote</button>
+    `;
+
+    modal.style.display = 'block';
+}
+
+// Initialize product modal
+function initializeProductModal() {
+    log('Initializing product modal...');
+    const modal = document.getElementById('productModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    if (!modal || !closeBtn) {
+        console.error('Modal elements not found!');
+        return;
+    }
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
     });
 
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.navbar')) {
-            navLinks.classList.remove('active');
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
         }
     });
-
-    // Update smooth scroll for contact button
-    document.querySelectorAll('a[href*="#contact"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            // Only prevent default if we're on the same page
-            if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-                e.preventDefault();
-                const contactSection = document.querySelector(this.getAttribute('href').split('#')[1]);
-                if (contactSection) {
-                    contactSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    // Close mobile menu if open
-                    navLinks.classList.remove('active');
-                }
-            }
-        });
-    });
-});
-
-// Modal functionality
-const modal = document.getElementById('bundleModal');
-const modalContent = document.getElementById('modalContent');
-const closeModal = document.getElementById('closeModal');
-const bundleInput = document.getElementById('bundle');
-
-function showBundleDetails(bundle) {
-    console.log('Showing modal for bundle:', bundle.name); // Log for debugging
-    
-    modalContent.innerHTML = `
-        <h2>${bundle.name}</h2>
-        <div class="bundle-image">
-            <img src="${bundle.modalImage}" alt="${bundle.name} Modal View">
-        </div>
-        <p>${bundle.description}</p>
-        <h3>Included Items:</h3>
-        <ul style="margin: 1rem 0 2rem 1.5rem;">
-            ${bundle.items ? bundle.items.map(item => `<li>${item}</li>`).join('') : '<li>Items list coming soon</li>'}
-        </ul>
-        <p><strong>${bundle.price}</strong></p>
-        <button onclick="selectBundle('${bundle.name}')">Request Quote</button>
-    `;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
 }
 
-function closeModalHandler() {
-    console.log('Closing modal'); // Debug log
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
+// Add to cart functionality
+function addToCart(productId) {
+    log(`Adding product ${productId} to cart`);
+    // Implement cart functionality
 }
 
-function selectBundle(bundleName) {
-    bundleInput.value = bundleName;
-    closeModalHandler();
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Event listeners for modal closing
-closeModal.addEventListener('click', closeModalHandler);
-
-// Close modal when clicking outside
-modal.addEventListener('click', (event) => {
-    // Check if the click was directly on the modal background (not its children)
-    if (event.target === modal) {
-        closeModalHandler();
-    }
-});
-
-// Sample bundle data with actual image URLs
-const bundles = [
-    {
-        id: 1,
-        name: "Indoor Soccer Starter Pack",
-        description: "Complete indoor soccer equipment set for teams",
-        price: "$999",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["10 Soccer Balls", "2 Portable Hoops", "Training Cones", "Whistle Set"]
-    },
-    {
-        id: 2,
-        name: "Soccer Team Bundle",
-        description: "Everything needed for a soccer team setup",
-        price: "$1299",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["15 Soccer Balls", "Goal Posts", "Training Vests", "Corner Flags"]
-    },
-    {
-        id: 3,
-        name: "Volleyball Set",
-        description: "Professional volleyball equipment package",
-        price: "$899",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-    },
-    {
-        id: 4,
-        name: "Volleyball Set",
-        description: "Professional volleyball equipment package",
-        price: "$899",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-    },
-    {
-        id: 5,
-        name: "Volleyball Set",
-        description: "Professional volleyball equipment package",
-        price: "$899",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-    },
-    {
-        id: 6,
-        name: "Volleyball Set",
-        description: "Professional volleyball equipment package",
-        price: "$899",
-        image: "images/product-image.png",
-        modalImage: "images/hero-image.png",
-        items: ["8 Volleyballs", "Net System", "Court Lines", "Training Equipment"]
-    }
-];
-
-function createBundleCard(bundle) {
-    console.log('Creating card for bundle:', bundle.name); // Debug log
-    return `
-        <div class="bundle-card" data-bundle-id="${bundle.id}">
-            <div class="bundle-image">
-                <img src="${bundle.image}" alt="${bundle.name} Bundle">
-            </div>
-            <div class="bundle-content">
-                <h3>${bundle.name}</h3>
-                <p>${bundle.description}</p>
-                <p><strong>${bundle.price}</strong></p>
-                <button onclick="showBundleDetails(${JSON.stringify(bundle).replace(/"/g, '&quot;')})">
-                    Learn More
-                </button>
-            </div>
-        </div>
-    `;
+// Search functionality
+function searchProducts(query) {
+    log(`Searching for: ${query}`);
+    // Implement search functionality
 }

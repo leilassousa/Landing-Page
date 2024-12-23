@@ -10,7 +10,7 @@ function log(message) {
 document.addEventListener('DOMContentLoaded', () => {
     log('Initializing page...');
     displayHighlightedProducts();
-    initializeProductModal();
+    initializeModals();
     initializeCarousel();
     initializeNavigation();
 });
@@ -58,23 +58,20 @@ function createProductCard(product) {
 
     // Add click event for the view details button
     const viewDetailsBtn = card.querySelector('.view-details-btn');
-    viewDetailsBtn.addEventListener('click', () => showProductModal(product));
+    viewDetailsBtn.addEventListener('click', () => showProductDetails(product));
 
     return card;
 }
 
-// Show product modal
-function showProductModal(product) {
-    log(`Showing modal for product: ${product.name}`);
-    
-    const modal = document.getElementById('productModal');
-    const modalHeader = modal.querySelector('.modal-header');
-    const modalBody = modal.querySelector('.modal-body');
-    const modalFooter = modal.querySelector('.modal-footer');
+// Show product details modal
+function showProductDetails(product) {
+    log(`Showing details for product: ${product.name}`);
 
-    modalHeader.innerHTML = `<h2>${product.name}</h2>`;
-    
-    modalBody.innerHTML = `
+    const modal = document.getElementById('productModal');
+    const modalContent = modal.querySelector('#modalContent');
+
+    modalContent.innerHTML = `
+        <h2>${product.name}</h2>
         <div class="modal-product-content">
             <div class="modal-product-image">
                 <img src="${product.image}" alt="${product.name}">
@@ -90,45 +87,95 @@ function showProductModal(product) {
                 </div>
             </div>
         </div>
+        <div class="modal-footer">
+            <button class="contact-btn" onclick="showQuoteForm(${JSON.stringify(product)})">Request Quote</button>
+        </div>
     `;
 
-    modalFooter.innerHTML = `
-        <button class="contact-btn">Contact for Quote</button>
-    `;
-
-    modal.style.display = 'block';
+    openModal(modal);
 }
 
-// Initialize product modal
-function initializeProductModal() {
-    log('Initializing product modal...');
-    const modal = document.getElementById('productModal');
-    const closeBtn = document.getElementById('closeModal');
+// Show quote form modal
+function showQuoteForm(product) {
+    log('Opening quote form for product:', product.name);
 
-    if (!modal || !closeBtn) {
-        console.error('Modal elements not found!');
-        return;
+    const modal = document.getElementById('quoteModal');
+    const productInput = modal.querySelector('#quoteProduct');
+    if (productInput) {
+        productInput.value = product.name;
     }
 
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
+    closeModal(document.getElementById('productModal'));
+    openModal(modal);
+}
+
+// Open modal helper
+function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close modal helper
+function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Initialize modals
+function initializeModals() {
+    log('Initializing modals...');
+    const modals = document.querySelectorAll('.modal');
+
+    modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            // Close only if clicking the backdrop (modal itself), not its contents
+            if (e.target === modal) {
+                closeModal(modal);
+            }
+        });
+
+        // Prevent touchmove on modal background to prevent page scrolling on mobile
+        modal.addEventListener('touchmove', (e) => {
+            if (e.target === modal) {
+                e.preventDefault();
+            }
+        });
     });
 
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+    // Initialize quote form
+    const quoteForm = document.getElementById('quoteForm');
+    if (quoteForm) {
+        quoteForm.addEventListener('submit', handleQuoteSubmit);
+    }
+
+    // Add escape key listener to close modals
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModals = Array.from(modals).filter(modal => 
+                window.getComputedStyle(modal).display !== 'none'
+            );
+            openModals.forEach(closeModal);
         }
     });
 }
 
-// Add to cart functionality
-function addToCart(productId) {
-    log(`Adding product ${productId} to cart`);
-    // Implement cart functionality
+// Handle quote form submission
+function handleQuoteSubmit(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    
+    log('Quote form submitted:', data);
+    
+    // Here you would typically send the data to your backend
+    alert('Thank you for your quote request. We will contact you shortly!');
+    closeModal(document.getElementById('quoteModal'));
+    e.target.reset();
 }
 
-// Search functionality
-function searchProducts(query) {
-    log(`Searching for: ${query}`);
-    // Implement search functionality
-}
+// Make functions available globally for onclick handlers
+window.showProductDetails = showProductDetails;
+window.showQuoteForm = showQuoteForm;

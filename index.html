@@ -78,11 +78,42 @@
     <!-- Product Modal -->
     <div class="modal" id="productModal">
         <div class="modal-content">
-            <button class="close-modal" id="closeModal">&times;</button>
-            <div id="modalContent">
-                <div class="modal-header"></div>
-                <div class="modal-body"></div>
-                <div class="modal-footer"></div>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Quote Form Modal -->
+    <div class="modal" id="quoteModal">
+        <div class="modal-content">
+            <div class="quote-form-container">
+                <h2>Request a Quote</h2>
+                <form id="quoteForm" class="quote-form">
+                    <div class="form-group">
+                        <label for="quoteName">Name</label>
+                        <input type="text" id="quoteName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quoteEmail">Email</label>
+                        <input type="email" id="quoteEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quotePhone">Phone</label>
+                        <input type="tel" id="quotePhone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quoteProduct">Selected Product</label>
+                        <input type="text" id="quoteProduct" name="product" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="quoteQuantity">Quantity</label>
+                        <input type="number" id="quoteQuantity" name="quantity" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quoteMessage">Message</label>
+                        <textarea id="quoteMessage" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Quote Request</button>
+                </form>
             </div>
         </div>
     </div>

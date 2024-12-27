@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #161616;
+    background-color: #161616e5;
     position: fixed;
     width: 100%;
     top: 0;
@@ -23,7 +23,7 @@
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
     list-style: none;
     margin: 0;
@@ -31,15 +31,18 @@
 }
 
 .nav-links a {
-    color: rgb(255, 252, 252);
+    color: rgb(243, 243, 243);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.9rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
 }
 
 .nav-links a:hover {
-    color: #00baa7;
+    color: #ff4c16;
+    transform: scale(1.1);
 }
 
 .mobile-menu-btn {

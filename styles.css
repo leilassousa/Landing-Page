@@ -1,6 +1,6 @@
 /* Reset and base styles */
 * {
-    margin: 0;
+    margin: 12;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
@@ -8,7 +8,7 @@
 
 body {
     line-height: 1.5;
-    color: #1f1f1f;
+    color: #353535;
 }
 
 /* Hero Section */
@@ -17,7 +17,7 @@ body {
     height: 100vh;
     overflow: hidden;
     background-color: #3a3a3a;
-    border-radius: 48px;
+    border-radius: 28px;
     margin-top: 100px;
 }
 
@@ -85,8 +85,8 @@ body {
 }
 
 .product-image {
-    width: 100%;
-    height: 200px;
+    width: 80%;
+    height: 160px;
     overflow: hidden;
 }
 
@@ -122,7 +122,7 @@ body {
 .view-details-btn {
     width: 100%;
     padding: 0.75rem;
-    background-color: #2c5282;
+    background-color: #111111;
     color: white;
     border: none;
     border-radius: 4px;
@@ -131,7 +131,7 @@ body {
 }
 
 .view-details-btn:hover {
-    background-color: #1a365d;
+    background-color: #111111;
 }
 
 /* Modal Styles */
@@ -228,7 +228,7 @@ body {
     content: "•";
     position: absolute;
     left: 0;
-    color: #2c5282;
+    color: #111111;
 }
 
 .modal-product-price {
@@ -371,7 +371,7 @@ body {
 }
 
 .contact-form button[type="submit"]:hover {
-    background: #192a7e;
+    background: #202020;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(12, 78, 136, 0.2);
 }
@@ -383,7 +383,7 @@ body {
 /* Required field indicator */
 .form-group label::after {
     content: "*";
-    color: rgb(12, 78, 136);
+    color: #111111;
     margin-left: 4px;
 }
 
@@ -409,7 +409,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #111111;
+    background: #202020;
     color: white;
     padding: 4rem 2rem;
 }
@@ -419,11 +419,11 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .footer-logo {
-    width: 120px;
+    width: 240  px;
     height: auto;
     margin-bottom: 1rem;
 }
@@ -525,7 +525,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #4CAF50;
+    color: #b1b1b1;
 }
 
 /* Store Dropdown Styles */
@@ -582,7 +582,7 @@ body {
 }
 
 .nav-cta-btn:hover {
-    background: #45a049;
+    background: #c7c7c7;
 }
 
 /* Mobile menu styles */
@@ -653,7 +653,7 @@ body {
 /* Button Styles */
 .bundle-content button,
 .modal-content button {
-    background: rgb(12, 78, 136);
+    background: rgb(10, 10, 10);
     color: white;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -672,9 +672,9 @@ body {
 
 .bundle-content button:hover,
 .modal-content button:hover {
-    background: #192a7e;
+    background: #111111;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(12, 78, 136, 0.2);
+    box-shadow: 0 4px 12px #27272733;
 }
 
 .bundle-content button:active,
@@ -697,13 +697,13 @@ body {
 
 .about-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1rem;
 }
 
 .about-section h1 {
     text-align: center;
     color: #111111;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 3rem;
     margin-top: 3rem;
     font-weight: 600;
@@ -711,7 +711,7 @@ body {
 
 .about-content {
     background: white;
-    padding: 1rem;
+    padding: 12px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
@@ -722,7 +722,7 @@ body {
 }
 
 .placeholder-message h2 {
-    color: rgb(12, 78, 136);
+    color: #3b3b3b;
     font-size: 1.8rem;
     margin-bottom: 2rem;
 }
@@ -742,7 +742,7 @@ body {
 
 .placeholder-message li:before {
     content: "•";
-    color: rgb(12, 78, 136);
+    color: #111111;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -812,11 +812,11 @@ body {
 .option-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(12, 78, 136, 0.1);
-    border-color: rgb(12, 78, 136);
+    border-color: #111111;
 }
 
 .option-card h3 {
-    color: rgb(12, 78, 136);
+    color: #111111;
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -837,7 +837,7 @@ body {
 
 .option-card li:before {
     content: "→";
-    color: rgb(12, 78, 136);
+    color: #111111;
     position: absolute;
     left: 0;
 }
@@ -960,7 +960,7 @@ body {
 
 .carousel-prev,
 .carousel-next {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.123);
     border: none;
     color: white;
     padding: 15px 20px;
@@ -972,7 +972,7 @@ body {
 
 .carousel-prev:hover,
 .carousel-next:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.096);
 }
 
 /* Carousel Indicators */

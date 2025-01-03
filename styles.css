@@ -905,22 +905,22 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #000; /* Dark background for letterboxing */
+    background-color: #ffffff; /* Dark background for letterboxing */
 }
 
 /* Define background images for each slide */
 .carousel-slide:nth-child(1) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
-                      url('images/home_carrousel/Audience.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
+                      url('images/home_carrousel/grip and control.jpg');
 }
 
 .carousel-slide:nth-child(2) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
                       url('images/home_carrousel/Superior engineering.jpg');
 }
 
 .carousel-slide:nth-child(3) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
                       url('images/home_carrousel/grip and control.jpg');
 }
 

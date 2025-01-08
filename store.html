@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store - Sports Equipment</title>
+    <title>Store - Penalty Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="store.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -28,81 +29,29 @@
         </div>
     </nav>
 
-    <!-- Category Filter Buttons -->
-    <section class="category-filter">
-        <div class="filter-container">
-            <h2>Our Products</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-category="all">All Products</button>
-                <button class="filter-btn" data-category="balls">Balls</button>
-                <button class="filter-btn" data-category="shoes">Shoes</button>
-                <button class="filter-btn" data-category="kids">Kids Sport</button>
+    <!-- Store Header -->
+    <header class="store-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <div class="category-filters" id="categoryFilters">
+                <!-- Categories will be dynamically added here -->
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Products Grid -->
-    <section class="products">
+    <main class="store-container">
         <div class="products-grid" id="productsGrid">
-            <!-- Products will be dynamically inserted here -->
+            <!-- Products will be dynamically added here -->
         </div>
-    </section>
-
-    <!-- Product Modal -->
-    <div class="modal" id="productModal">
-        <div class="modal-content">
-            <div id="modalContent"></div>
-        </div>
-    </div>
-
-    <!-- Quote Form Modal -->
-    <div class="modal" id="quoteModal">
-        <div class="modal-content">
-            <div class="quote-form-container">
-                <h2>Request a Quote</h2>
-                <form id="quoteForm" class="quote-form">
-                    <div class="form-group">
-                        <label for="quoteName">Name</label>
-                        <input type="text" id="quoteName" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteEmail">Email</label>
-                        <input type="email" id="quoteEmail" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quotePhone">Phone</label>
-                        <input type="tel" id="quotePhone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteProduct">Selected Product</label>
-                        <input type="text" id="quoteProduct" name="product" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteQuantity">Quantity</label>
-                        <input type="number" id="quoteQuantity" name="quantity" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteMessage">Message</label>
-                        <textarea id="quoteMessage" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Submit Quote Request</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Explanation Section -->
-    <section class="explanation">
-        <h2>Why Choose Our Bundles?</h2>
-        <p>We offer premium sports equipment bundles at wholesale prices, perfect for organizations looking to outfit their teams or facilities. Enjoy bulk discounts and dedicated support for your equipment needs.</p>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="images\PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
+                    <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
                 </div>
                 <p>TEAM UP TO WIN!</p>
             </div>
@@ -120,7 +69,7 @@
             <div class="footer-section">
                 <h4>Contact Info</h4>
                 <ul class="footer-links">
-                    <li>Email: info@example.com</li>
+                    <li>Email: info@wholesale-penalty.com</li>
                     <li>Phone: (555) 123-4567</li>
                     <li>Address: 123 Sports Ave,</li>
                     <li>City, State 12345</li>
@@ -146,6 +95,5 @@
     <script src="products.js" type="module"></script>
     <script src="store.js" type="module"></script>
     <script src="navbar.js" type="module"></script>
-    <script src="carousel.js" type="module"></script>
 </body>
 </html>

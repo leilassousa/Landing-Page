@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Sports Equipment Bundles</title>
+    <title>About Us - Penalty Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -30,48 +30,130 @@
 
     <!-- About Us Content Section -->
     <section class="about-section">
+        <!-- Hero Image -->
+        <div class="about-hero">
+            <img src="images/banner.jpg" alt="About Penalty Sports">
+        </div>
+
+        <!-- Main Content -->
         <div class="about-container">
-            <h1>TEAM UP TO WIN!</h1>
             <div class="about-content">
-                <div class="placeholder-message">
-                    <ul>
-                        <p>We’re a Brazilian sports brand founded in 1970 in São Paulo, known for our quality and innovation, especially in soccer balls. Back in the 80s, we shook up the game by introducing the first ball with 'Termotec' technology. This heat-fusion process bonded panels without stitching, making balls tougher and more reliable. That breakthrough cemented Penalty as a leader in ball manufacturing.</p>
-                        <p>But we’re not just about balls. Our cleats, like the popular Matís and S11 models, are loved by both pros and amateurs. We also offer gear for various sports, from beach tennis rackets to goalkeeper gloves.</p>
-                        <p>Recently, we’ve doubled down on innovation, launching products designed to meet athletes' high standards. And we’re committed to sustainability, using recyclable materials and supporting social causes. Penalty is now a global name in sports equipment, offering high-quality products at accessible prices, helping athletes everywhere play their best.</p>
-                        <h2>Balls</h2>
-                        <p>Penalty is the go-to brand for sports balls, whether you’re a pro or just playing for fun. Known for exceptional quality, our balls are tailored for sports like soccer, volleyball, and basketball, delivering top-notch performance and durability.</p>
-                        <p>Playing with a Penalty ball isn’t just about the game—it also helps kids develop teamwork and decision-making skills. By choosing Penalty, you’re investing in tradition, quality, and unforgettable moments on the field.</p>
-                        <h2>Shoes</h2>
-                        <p>Choosing Penalty shoes comes with some big perks:</p>
+                <h1>TEAM UP TO WIN!</h1>
+                
+                <div class="about-text">
+                    <p>We're a Brazilian sports brand founded in 1970 in São Paulo, known for our quality and innovation, especially in soccer balls. Back in the 80s, we shook up the game by introducing the first ball with 'Termotec' technology. This heat-fusion process bonded panels without stitching, making balls tougher and more reliable. That breakthrough cemented Penalty as a leader in ball manufacturing.</p>
+                    
+                    <p>But we're not just about balls. Our cleats, like the popular Matís and S11 models, are loved by both pros and amateurs. We also offer gear for various sports, from beach tennis rackets to goalkeeper gloves.</p>
+                    
+                    <p>Recently, we've doubled down on innovation, launching products designed to meet athletes' high standards. And we're committed to sustainability, using recyclable materials and supporting social causes. Penalty is now a global name in sports equipment, offering high-quality products at accessible prices, helping athletes everywhere play their best.</p>
+                </div>
+
+                <!-- Balls Section -->
+                <h2 class="about-section-header">Balls</h2>
+                <div class="about-text">
+                    <p>Penalty is the go-to brand for sports balls, whether you're a pro or just playing for fun. Known for exceptional quality, our balls are tailored for sports like soccer, volleyball, and basketball, delivering top-notch performance and durability.</p>
+                    <p>Playing with a Penalty ball isn't just about the game—it also helps kids develop teamwork and decision-making skills. By choosing Penalty, you're investing in tradition, quality, and unforgettable moments on the field.</p>
+                </div>
+
+                <!-- Shoes Section -->
+                <h2 class="about-section-header">Shoes</h2>
+                <div class="about-text">
+                    <p>Choosing Penalty shoes comes with some big perks:</p>
+                    <ul class="feature-list">
                         <li>Superior Quality: Built with high-performance materials for durability and comfort.</li>
                         <li>Advanced Technology: Features like soles designed for better grip and control.</li>
-                        <p>We’ve got cleats for every player and surface, whether you’re just starting or competing professionally. And with international recognition, Penalty cleats are a trusted choice worldwide.</p>                        
                     </ul>
+                    <p>We've got cleats for every player and surface, whether you're just starting or competing professionally. And with international recognition, Penalty cleats are a trusted choice worldwide.</p>
+                </div>
+
+                <!-- Technologies Section -->
+                <h2 class="about-section-header">Our Technologies</h2>
+                <div class="tech-grid">
+                    <!-- Ball Technology Card -->
+                    <div class="tech-card" data-tech="balls">
+                        <div class="tech-icon">
+                            <img src="images/tech-icons/ball-icon.png" alt="Ball Technology">
+                        </div>
+                        <div class="tech-content">
+                            <h3>Termotec Technology</h3>
+                            <p>Our revolutionary ball manufacturing process</p>
+                            <button class="tech-details-btn" data-tech="balls">Learn More</button>
+                        </div>
+                    </div>
+
+                    <!-- Shoes Technology Card -->
+                    <div class="tech-card" data-tech="shoes">
+                        <div class="tech-icon">
+                            <img src="images/tech-icons/shoe-icon.png" alt="Shoe Technology">
+                        </div>
+                        <div class="tech-content">
+                            <h3>Grip Control System</h3>
+                            <p>Advanced sole technology for superior control</p>
+                            <button class="tech-details-btn" data-tech="shoes">Learn More</button>
+                        </div>
+                    </div>
+
+                    <!-- Materials Technology Card -->
+                    <div class="tech-card" data-tech="materials">
+                        <div class="tech-icon">
+                            <img src="images/tech-icons/material-icon.png" alt="Materials Technology">
+                        </div>
+                        <div class="tech-content">
+                            <h3>Smart Materials</h3>
+                            <p>Innovative materials for durability and performance</p>
+                            <button class="tech-details-btn" data-tech="materials">Learn More</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Hero Image Section -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-image">
-                <img src="images\Hero_footer.jpg" alt="Penalty Sports Equipment">
-            </div>
-            <div class="hero-overlay">
-                <h2>QUALITY SPORTS EQUIPMENT SINCE 1970</h2>
-                <p>Empowering athletes with innovative gear for over 50 years</p>
+        <!-- Technology Modal -->
+        <div class="tech-modal" id="techModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modalTitle">Technology Details</h2>
+                
+                <!-- Carousel Container -->
+                <div class="tech-carousel">
+                    <div class="carousel-container" id="carouselContainer">
+                        <!-- Images will be dynamically loaded here -->
+                    </div>
+                    
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" id="prevBtn">❮</button>
+                        <button class="carousel-btn next" id="nextBtn">❯</button>
+                    </div>
+                    
+                    <!-- Carousel Indicators -->
+                    <div class="carousel-indicators" id="carouselIndicators">
+                        <!-- Indicators will be dynamically added -->
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Bottom Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-image">
+                    <img src="images/Hero_footer.jpg" alt="Penalty Sports Equipment">
+                </div>
+                <div class="hero-overlay">
+                    <h2>QUALITY SPORTS EQUIPMENT SINCE 1970</h2>
+                    <p>Empowering athletes with innovative gear for over 50 years</p>
+                </div>
+            </div>
+        </section>
     </section>
 
     <!-- Footer -->
-         <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="images\PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
+                    <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
                 </div>
                 <p>TEAM UP TO WIN!</p>
             </div>
@@ -89,7 +171,7 @@
             <div class="footer-section">
                 <h4>Contact Info</h4>
                 <ul class="footer-links">
-                    <li>Email: info@example.com</li>
+                    <li>Email: info@wholesale-penalty.com</li>
                     <li>Phone: (555) 123-4567</li>
                     <li>Address: 123 Sports Ave,</li>
                     <li>City, State 12345</li>
@@ -111,8 +193,8 @@
             <p>&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
         </div>
     </footer>
-    <!-- Copy the same footer from index.html -->
-    <script src="script.js"></script>
+
     <script src="navbar.js"></script>
+    <script src="about.js"></script>
 </body>
 </html> 

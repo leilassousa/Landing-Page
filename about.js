@@ -1,7 +1,7 @@
 // Technology image paths
 const techImages = {
     balls: [
-        'images/technologies/balls/tech1.jpg',
+        'images/our_technologies/balls/image1.jpg',
         'images/technologies/balls/tech2.jpg',
         'images/technologies/balls/tech3.jpg'
     ],

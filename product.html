@@ -29,82 +29,60 @@
         </div>
     </nav>
 
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">
-        <div class="container">
-            <a href="index.html">Home</a> &gt;
-            <a href="store.html">Store</a> &gt;
-            <span id="product-category">Category</span> &gt;
-            <span id="product-name">Product Name</span>
+    <!-- Product Main Section -->
+    <div class="product-container">
+        <div class="product-image-section">
+            <img id="main-product-image" src="" alt="">
+            <div id="thumbnail-strip"></div>
+        </div>
+
+        <div class="product-info-section">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <span id="product-category"></span> / <span id="product-name"></span>
+            </div>
+
+            <!-- Product Title -->
+            <h1 id="product-title"></h1>
+
+            <!-- Product Description -->
+            <p id="product-description"></p>
+
+            <!-- Variations Section -->
+            <div class="variations-wrapper">
+                <h2>Variations</h2>
+                <div id="variants-section"></div>
+            </div>
+
+            <!-- Add to Quote Button -->
+            <button id="add-to-quote" class="primary-button">Add to quote basket</button>
+
+            <!-- Tabs Section -->
+            <div class="tabs-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="features-tab">Features</button>
+                    <button class="tab-btn" data-tab="details-tab">Details</button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Features Tab -->
+                    <div id="features-tab" class="tab-pane active">
+                        <ul id="product-features"></ul>
+                    </div>
+
+                    <!-- Details Tab -->
+                    <div id="details-tab" class="tab-pane">
+                        <ul id="product-details"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Product Section -->
-    <main class="product-container">
-        <!-- Product Gallery -->
-        <section class="product-gallery">
-            <div class="main-image">
-                <img id="main-product-image" src="" alt="Product Image">
-            </div>
-            <div class="thumbnail-strip" id="thumbnail-strip">
-                <!-- Thumbnails will be dynamically added here -->
-            </div>
-        </section>
-
-        <!-- Product Information -->
-        <section class="product-info">
-            <h1 id="product-title">Product Name</h1>
-            
-            <!-- Variations Section -->
-            <div class="variations" id="variations-section">
-                <h3>Variations</h3>
-                <div class="variation-options">
-                    <!-- Variations will be dynamically added here -->
-                </div>
-            </div>
-
-            <!-- Size Section -->
-            <div class="size-section">
-                <h3>Size</h3>
-                <div class="size-options" id="size-options">
-                    <!-- Sizes will be dynamically added here -->
-                </div>
-                <a href="#" class="size-guide-link">Size Guide</a>
-            </div>
-
-            <!-- Quote Button -->
-            <button class="add-to-quote-btn" id="add-to-quote">Add to quote basket</button>
-        </section>
-
-        <!-- Product Details Tabs -->
-        <section class="product-details">
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="description">Description</button>
-                <button class="tab-btn" data-tab="details">Details</button>
-            </div>
-            
-            <div class="tab-content">
-                <div id="description" class="tab-pane active">
-                    <p id="product-description"></p>
-                    <ul id="product-features" class="features-list">
-                        <!-- Features will be dynamically added here -->
-                    </ul>
-                </div>
-                <div id="details" class="tab-pane">
-                    <!-- Technical details will be added here -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Related Products -->
+    <!-- Related Products Section -->
     <section class="related-products">
-        <div class="container">
-            <h2>Related Products</h2>
-            <div class="related-products-grid" id="related-products">
-                <!-- Related products will be dynamically added here -->
-            </div>
-        </div>
+        <h2>Related Products</h2>
+        <div id="related-products" class="products-grid"></div>
     </section>
 
     <!-- Footer (reused from index.html) -->

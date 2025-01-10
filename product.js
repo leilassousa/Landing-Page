@@ -7,9 +7,8 @@ const thumbnailStrip = document.getElementById('thumbnail-strip');
 const productTitle = document.getElementById('product-title');
 const productDescription = document.getElementById('product-description');
 const productFeatures = document.getElementById('product-features');
-const variationsSection = document.getElementById('variations-section');
-const sizeOptions = document.getElementById('size-options');
-const addToQuoteBtn = document.getElementById('add-to-quote');
+const productDetails = document.getElementById('product-details');
+const variantsSection = document.getElementById('variants-section');
 const productCategory = document.getElementById('product-category');
 const productName = document.getElementById('product-name');
 const relatedProducts = document.getElementById('related-products');
@@ -36,7 +35,7 @@ function loadProduct() {
     document.title = `${product.name} - Penalty Sports`;
 
     // Update breadcrumbs
-    productCategory.textContent = product.category;
+    productCategory.textContent = product.category.charAt(0).toUpperCase() + product.category.slice(1);
     productName.textContent = product.name;
 
     // Update product details
@@ -48,6 +47,12 @@ function loadProduct() {
     // Load features
     loadFeatures(product.features);
 
+    // Load details
+    loadDetails(product.details);
+
+    // Load variants
+    loadVariants(product.variants);
+
     // Load related products
     loadRelatedProducts(product.category);
 }
@@ -55,9 +60,95 @@ function loadProduct() {
 // Load product features
 function loadFeatures(features) {
     console.log('Loading features:', features);
-    productFeatures.innerHTML = features
-        .map(feature => `<li>${feature}</li>`)
-        .join('');
+    if (productFeatures) {
+        productFeatures.innerHTML = features
+            .map(feature => `<li class="feature-item"><span class="feature-bullet">•</span>${feature}</li>`)
+            .join('');
+    }
+}
+
+// Load product details
+function loadDetails(details) {
+    console.log('Loading details:', details);
+    if (productDetails) {
+        productDetails.innerHTML = details
+            .map(detail => `<li class="detail-item"><span class="detail-bullet">•</span>${detail}</li>`)
+            .join('');
+    }
+}
+
+// Load product variants
+function loadVariants(variants) {
+    console.log('Loading variants:', variants);
+    if (variantsSection) {
+        const variantGroups = groupVariants(variants);
+        
+        // Create color selection
+        const colorHTML = `
+            <div class="variant-colors">
+                <h3>Colors</h3>
+                <div class="color-options">
+                    ${Object.keys(variantGroups).map(color => `
+                        <button class="color-option" data-color="${color}">
+                            ${color}
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Create size selection
+        const sizeHTML = `
+            <div class="variant-sizes">
+                <h3>Sizes</h3>
+                <div class="size-options">
+                    ${[...new Set(variants.map(v => v.size))].map(size => `
+                        <button class="size-option" data-size="${size}">
+                            ${size}
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        variantsSection.innerHTML = colorHTML + sizeHTML;
+
+        // Add event listeners
+        initVariantSelectors();
+    }
+}
+
+// Group variants by color
+function groupVariants(variants) {
+    return variants.reduce((groups, variant) => {
+        if (!groups[variant.color]) {
+            groups[variant.color] = [];
+        }
+        groups[variant.color].push(variant);
+        return groups;
+    }, {});
+}
+
+// Initialize variant selectors
+function initVariantSelectors() {
+    const colorButtons = document.querySelectorAll('.color-option');
+    const sizeButtons = document.querySelectorAll('.size-option');
+
+    colorButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            colorButtons.forEach(b => b.classList.remove('selected'));
+            button.classList.add('selected');
+            console.log('Selected color:', button.dataset.color);
+        });
+    });
+
+    sizeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            sizeButtons.forEach(b => b.classList.remove('selected'));
+            button.classList.add('selected');
+            console.log('Selected size:', button.dataset.size);
+        });
+    });
 }
 
 // Load related products
@@ -70,9 +161,14 @@ function loadRelatedProducts(category) {
     relatedProducts.innerHTML = related
         .map(product => `
             <div class="product-card">
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <a href="product.html?id=${product.id}" class="view-product-btn">View Product</a>
+                <div class="product-image-container">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-description">${product.description}</p>
+                    <a href="product.html?id=${product.id}" class="view-product-btn">View Product</a>
+                </div>
             </div>
         `)
         .join('');
@@ -100,11 +196,27 @@ function initTabs() {
 
 // Quote functionality
 function initQuoteButton() {
-    addToQuoteBtn.addEventListener('click', () => {
-        console.log('Adding to quote:', productId);
-        // Add quote functionality here
-        alert('Product added to quote basket!');
-    });
+    const addToQuoteBtn = document.getElementById('add-to-quote');
+    if (addToQuoteBtn) {
+        addToQuoteBtn.addEventListener('click', () => {
+            // Get selected variants
+            const selectedColor = document.querySelector('.color-option.selected')?.dataset.color;
+            const selectedSize = document.querySelector('.size-option.selected')?.dataset.size;
+
+            if (!selectedColor || !selectedSize) {
+                alert('Please select both color and size before requesting a quote');
+                return;
+            }
+
+            console.log('Adding to quote:', {
+                productId,
+                color: selectedColor,
+                size: selectedSize
+            });
+            
+            alert('Product added to quote basket!');
+        });
+    }
 }
 
 // Initialize page

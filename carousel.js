@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.carousel-slide');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
     const indicators = document.querySelector('.carousel-indicators');
     let currentSlide = 0;
 
@@ -29,19 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlides();
     }
 
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlides();
-    }
-
     function goToSlide(index) {
         currentSlide = index;
         updateSlides();
     }
-
-    // Event listeners
-    prevButton.addEventListener('click', prevSlide);
-    nextButton.addEventListener('click', nextSlide);
 
     // Auto-advance slides every 5 seconds
     setInterval(nextSlide, 5000);

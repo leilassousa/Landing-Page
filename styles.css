@@ -771,51 +771,92 @@ body {
 
 .sidebar {
     width: 250px;
-    height: calc(100vh - 80px); /* Subtract navbar height */
-    padding: 2rem;
-    position: sticky;
-    top: 80px; /* Start below navbar */
+    height: auto;
     background-color: #f8f9fa;
+    padding: 2rem;
+    position: fixed;
+    top: 80px; /* Match navbar height */
+    left: 0;
+    overflow-y: auto;
+    z-index: 100;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+.sidebar-nav a:hover {
+    color: #007bff;
+    background-color: #e9ecef;
 }
 
 .main-content {
     flex: 1;
-    min-height: calc(100vh - 80px);
+    margin-left: 40px; /* Match sidebar width */
     padding: 0;
-    background: #fff;
+    min-height: calc(100vh - 80px);
 }
 
-/* Responsive Design */
+/* Mobile Responsive Sidebar */
 @media (max-width: 768px) {
     .page-container {
-        flex-direction: column;
+        margin-top: 60px; /* Adjusted for mobile navbar height */
     }
 
     .sidebar {
         width: 100%;
         height: auto;
-        position: static;
+        position: relative;
+        top: 0;
         padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .about-hero {
-        height: 300px;
-        margin-top: 60px;
+    .sidebar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
     }
 
-    .about-content {
-        padding: 2rem 1rem;
-        margin-top: 1rem;
+    .sidebar-nav li {
+        margin-bottom: 0;
     }
 
-    .about-content h1 {
-        font-size: 2.5rem;
+    .sidebar-nav a {
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        white-space: nowrap;
     }
 
     .main-content {
+        margin-left: 0;
         padding: 0;
+    }
+
+    .about-hero {
+        margin-top: 0;
     }
 }
 
@@ -1873,5 +1914,96 @@ body {
 
     .content-column p {
         font-size: 1.1rem;
+    }
+}
+
+/* Catalogs Section Styles */
+.catalogs-section {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.catalogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.catalog-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    padding: 2rem;
+    text-align: center;
+}
+
+.catalog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.catalog-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+}
+
+.catalog-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.catalog-content h3 {
+    font-size: 1.3rem;
+    color: #111111;
+    margin-bottom: 0.5rem;
+}
+
+.catalog-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.catalog-download-btn {
+    display: inline-block;
+    background: #111111;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.catalog-download-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments for Catalogs */
+@media (max-width: 768px) {
+    .catalogs-section {
+        padding: 2rem 1rem;
+    }
+
+    .catalogs-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .catalog-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalogs-grid {
+        grid-template-columns: 1fr;
     }
 }

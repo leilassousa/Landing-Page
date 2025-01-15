@@ -1759,3 +1759,66 @@ body {
     width: 100%;
     height: 100%;
 }
+
+/* Two Column Section */
+.two-column-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+    margin: 4rem 0;
+}
+
+.column {
+    padding: 2rem;
+}
+
+.image-column {
+    background-image: linear-gradient(135deg, #e6eeff 0%, #f7f0ff 100%);
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;
+}
+
+.content-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.content-column h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.content-column p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* Responsive Design for Two Column Section */
+@media (max-width: 768px) {
+    .two-column-section {
+        grid-template-columns: 1fr;
+    }
+
+    .image-column {
+        min-height: 300px;
+    }
+
+    .content-column {
+        padding: 3rem 2rem;
+    }
+
+    .content-column h2 {
+        font-size: 2rem;
+    }
+
+    .content-column p {
+        font-size: 1.1rem;
+    }
+}

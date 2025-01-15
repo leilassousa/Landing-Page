@@ -702,14 +702,14 @@ body {
 
 /* About Page Styles */
 .about-section {
-    padding: 0;  /* Remove padding as we'll have full-width hero */
+    padding: 0;
     background: #fff;
 }
 
 .about-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0;
+    padding: 2rem;
 }
 
 /* Hero Image Styles */
@@ -729,14 +729,10 @@ body {
 
 /* Main Content Styles */
 .about-content {
-    max-width: 900px;
-    margin: -60px auto 0;
     background: white;
     padding: 3rem;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 2;
+    margin-top: 2rem;
 }
 
 .about-content h1 {
@@ -764,6 +760,63 @@ body {
     margin: 3rem 0 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid #f0f0f0;
+}
+
+/* Sidebar Styles */
+.page-container {
+    display: flex;
+    position: relative;
+    margin-top: 80px; /* Account for fixed navbar */
+}
+
+.sidebar {
+    width: 250px;
+    height: calc(100vh - 80px); /* Subtract navbar height */
+    padding: 2rem;
+    position: sticky;
+    top: 80px; /* Start below navbar */
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.main-content {
+    flex: 1;
+    min-height: calc(100vh - 80px);
+    padding: 0;
+    background: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 1rem;
+    }
+
+    .about-hero {
+        height: 300px;
+        margin-top: 60px;
+    }
+
+    .about-content {
+        padding: 2rem 1rem;
+        margin-top: 1rem;
+    }
+
+    .about-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-content {
+        padding: 0;
+    }
 }
 
 /* Feature List */

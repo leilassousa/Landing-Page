@@ -1,44 +1,42 @@
-// Navbar JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
+// Import cart module
+import * as cartModule from './cart.js';
 
-    if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            console.log('Mobile menu toggled');
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Navbar script initialized');
+
+    // Set active nav link based on current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+
+    // Initialize cart UI
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        const itemCount = cartModule.getCartItemCount();
+        cartCount.textContent = itemCount;
+        cartCount.style.display = itemCount > 0 ? 'block' : 'none';
     }
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            navMenu.classList.remove('active');
-            console.log('Mobile menu closed by outside click');
-        }
-    });
-
-    // Log navigation interactions
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            console.log(`Navigation: Clicked ${link.textContent} link`);
-        });
-    });
-
-    // Add logging for responsive behavior
-    window.addEventListener('resize', () => {
-        const width = window.innerWidth;
-        console.log(`Screen resized to: ${width}px`);
+    // Update Request Quote button state
+    const requestQuoteBtn = document.getElementById('request-quote-btn');
+    if (requestQuoteBtn) {
+        const updateQuoteButtonState = () => {
+            const cart = cartModule.getCart();
+            requestQuoteBtn.disabled = cart.items.length === 0;
+        };
         
-        if (width > 1024) {
-            console.log('Viewport: Desktop');
-        } else if (width > 768) {
-            console.log('Viewport: Tablet');
-        } else if (width > 480) {
-            console.log('Viewport: Mobile');
-        } else {
-            console.log('Viewport: Small Mobile');
+        // Initial state
+        updateQuoteButtonState();
+        
+        // Update on cart changes
+        const cartModal = document.getElementById('cartModal');
+        if (cartModal) {
+            cartModal.addEventListener('shown.bs.modal', updateQuoteButtonState);
         }
-    });
+    }
 }); 

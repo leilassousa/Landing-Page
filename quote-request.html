@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store - Penalty Sports</title>
+    <title>Request Quote - Penalty Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -13,10 +13,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/base-styles.css">
     <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/store.css">
     <!-- Add logging for style loading -->
     <script>
-        console.log('Store page styles loaded successfully');
+        console.log('Quote request page styles loaded successfully');
     </script>
 </head>
 <body>
@@ -40,7 +39,7 @@
                         <a class="nav-link" href="index.html">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="store.html">STORE</a>
+                        <a class="nav-link" href="store.html">STORE</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">ABOUT US</a>
@@ -86,37 +85,81 @@
         </div>
     </div>
 
-    <!-- Store Header -->
-    <header class="bg-light py-5">
-        <div class="container">
-            <h1 class="display-4 text-center mb-4">Our Products</h1>
-            <p class="lead text-center mb-5">Discover our professional-grade sports equipment</p>
-            
-            <!-- Category Filter -->
-            <div class="row justify-content-center mb-4">
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center gap-2" id="category-filters">
-                        <button class="btn btn-dark active" data-category="all">All Products</button>
-                        <button class="btn btn-outline-dark" data-category="shoes">Shoes</button>
-                        <button class="btn btn-outline-dark" data-category="balls">Balls</button>
-                        <button class="btn btn-outline-dark" data-category="kids">Kids</button>
+    <!-- Quote Request Form -->
+    <div class="container py-5">
+        <h1 class="display-4 text-center mb-5">Request a Quote</h1>
+        
+        <!-- Cart Summary -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="card-title mb-0">Selected Items</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="quote-items">
+                            <!-- Cart items will be displayed here -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <!-- Products Grid -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-4" id="products-grid">
-                <!-- Products will be dynamically inserted here -->
+        <!-- Contact Form -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="card-title mb-0">Contact Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name*</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name*</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email*</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number*</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="company" class="form-label">Company Name</label>
+                                    <input type="text" class="form-control" id="company">
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Additional Notes</label>
+                                    <textarea class="form-control" id="message" rows="4"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I agree to the terms and conditions*
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-dark btn-lg">Submit Quote Request</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-5">
+    <footer class="bg-dark text-light py-5 mt-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
@@ -165,13 +208,6 @@
     <!-- Custom Scripts -->
     <script src="scripts/cart.js" type="module"></script>
     <script src="scripts/navbar.js" type="module"></script>
-    <script src="scripts/store.js" type="module"></script>
-    <!-- Add logging for script loading -->
-    <script>
-        console.log('Store page scripts loaded successfully');
-        window.addEventListener('DOMContentLoaded', () => {
-            console.log('Store page DOM fully loaded and parsed');
-        });
-    </script>
+    <script src="scripts/quote-request.js" type="module"></script>
 </body>
-</html>
+</html> 

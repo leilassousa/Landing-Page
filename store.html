@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store - Your Company</title>
+    <title>Store - Penalty Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/base-styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/store.css">
     <!-- Add logging for style loading -->
     <script>
         console.log('Store page styles loaded successfully');
@@ -16,16 +21,21 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
+            <!-- Logo -->
             <a class="navbar-brand" href="index.html">
                 <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" height="40">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">HOME</a>
                     </li>
@@ -44,23 +54,33 @@
     </nav>
 
     <!-- Store Header -->
-    <header class="py-5 bg-light mt-5">
-        <div class="container text-center">
-            <h1 class="display-4 mb-4">Our Products</h1>
-            <div class="btn-group" id="categoryFilters">
-                <!-- Categories will be dynamically added here -->
+    <header class="bg-light py-5">
+        <div class="container">
+            <h1 class="display-4 text-center mb-4">Our Products</h1>
+            <p class="lead text-center mb-5">Discover our professional-grade sports equipment</p>
+            
+            <!-- Category Filter -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center gap-2" id="category-filters">
+                        <button class="btn btn-dark active" data-category="all">All Products</button>
+                        <button class="btn btn-outline-dark" data-category="shoes">Shoes</button>
+                        <button class="btn btn-outline-dark" data-category="balls">Balls</button>
+                        <button class="btn btn-outline-dark" data-category="kids">Kids</button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Products Grid -->
-    <main class="py-5">
+    <section class="py-5">
         <div class="container">
-            <div class="row g-4" id="productsGrid">
-                <!-- Products will be dynamically added here -->
+            <div class="row g-4" id="products-grid">
+                <!-- Products will be dynamically inserted here -->
             </div>
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-5">
@@ -109,10 +129,8 @@
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <!-- Scripts -->
-    <script src="scripts/navbar.js"></script>
-    <script src="scripts/store.js"></script>
-    <script src="scripts/products.js"></script>
+    <!-- Custom Scripts -->
+    <script src="scripts/store.js" type="module"></script>
     <!-- Add logging for script loading -->
     <script>
         console.log('Store page scripts loaded successfully');

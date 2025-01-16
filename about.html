@@ -6,10 +6,14 @@
     <title>About Us - Penalty Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="about.css">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/base-styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/about.css">
     <!-- Add logging for style loading -->
     <script>
         console.log('About page styles loaded successfully');
@@ -17,262 +21,307 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" style="width: 170px;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" height="40">
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <div class="nav-right" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="store.html">STORE</a></li>
-                    <li><a href="about.html">ABOUT US</a></li>
-                    <li><a href="contact.html">CONTACT US</a></li>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="store.html">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT US</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Page Container -->
-    <div class="page-container">
+    <div class="about-layout">
         <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <ul class="sidebar-nav">
-                <li><a href="#company-intro">About</a></li>
-                <li><a href="#company-video">Video</a></li>
+        <aside class="sidebar-nav">
+            <ul>
+                <li><a href="#company-intro" class="active">About</a></li>
+                <li><a href="#company-video">Our Story</a></li>
                 <li><a href="#technologies">Technologies</a></li>
                 <li><a href="#catalogs">Catalogs</a></li>
             </ul>
         </aside>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- About Us Content Section -->
-            <section class="about-section">
-                <!-- Hero Image -->
-                <div class="about-hero">
-                    <img src="images/about/hero-banner.jpg" alt="About Penalty Sports">
-                </div>
+        <!-- Main Content Container -->
+        <div class="main-container">
+            <!-- Hero Section -->
+            <header class="about-hero">
+                <img src="images/about/hero-banner.jpg" alt="About Penalty Sports" class="w-100 h-100 object-fit-cover">
+            </header>
 
-                <!-- Main Content -->
-                <div class="about-container" id="company-intro">
-                    <div class="about-content">
-                        <h1>TEAM UP TO WIN!</h1>
-                        
-                        <div class="about-text">
-                            <p>We're a Brazilian sports brand founded in 1970 in São Paulo, known for our quality and innovation, especially in soccer balls. Back in the 80s, we shook up the game by introducing the first ball with 'Termotec' technology. This heat-fusion process bonded panels without stitching, making balls tougher and more reliable. That breakthrough cemented Penalty as a leader in ball manufacturing.</p>
-                            
-                            <p>But we're not just about balls. Our cleats, like the popular Matís and S11 models, are loved by both pros and amateurs. We also offer gear for various sports, from beach tennis rackets to goalkeeper gloves.</p>
-                            
-                            <p>Recently, we've doubled down on innovation, launching products designed to meet athletes' high standards. And we're committed to sustainability, using recyclable materials and supporting social causes. Penalty is now a global name in sports equipment, offering high-quality products at accessible prices, helping athletes everywhere play their best.</p>
+            <!-- Main Content -->
+            <main class="container py-5">
+                <!-- About Section -->
+                <section id="company-intro" class="mb-5">
+                    <h1 class="display-4 text-center mb-4">TEAM UP TO WIN!</h1>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm">
+                                <p class="lead mb-4">We're a Brazilian sports brand founded in 1970 in São Paulo, known for our quality and innovation, especially in soccer balls. Back in the 80s, we shook up the game by introducing the first ball with 'Termotec' technology. This heat-fusion process bonded panels without stitching, making balls tougher and more reliable. That breakthrough cemented Penalty as a leader in ball manufacturing.</p>
+                                
+                                <p class="mb-4">But we're not just about balls. Our cleats, like the popular Matís and S11 models, are loved by both pros and amateurs. We also offer gear for various sports, from beach tennis rackets to goalkeeper gloves.</p>
+                                
+                                <p class="mb-5">Recently, we've doubled down on innovation, launching products designed to meet athletes' high standards. And we're committed to sustainability, using recyclable materials and supporting social causes. Penalty is now a global name in sports equipment, offering high-quality products at accessible prices, helping athletes everywhere play their best.</p>
 
-                            <h3 class="about-section-header">Our Balls</h3>
-                            <p>Penalty is the go-to brand for sports balls, whether you're a pro or just playing for fun. Known for exceptional quality, our balls are tailored for sports like soccer, volleyball, and basketball, delivering top-notch performance and durability.</p>
-                            <p>Playing with a Penalty ball isn't just about the game—it also helps kids develop teamwork and decision-making skills. By choosing Penalty, you're investing in tradition, quality, and unforgettable moments on the field.</p>
+                                <h2 class="h3 mb-4">Our Balls</h2>
+                                <p class="mb-4">Penalty is the go-to brand for sports balls, whether you're a pro or just playing for fun. Known for exceptional quality, our balls are tailored for sports like soccer, volleyball, and basketball, delivering top-notch performance and durability.</p>
+                                <p class="mb-5">Playing with a Penalty ball isn't just about the game—it also helps kids develop teamwork and decision-making skills. By choosing Penalty, you're investing in tradition, quality, and unforgettable moments on the field.</p>
 
-                            <h3 class="about-section-header">Our Shoes</h3>
-                            <p>Choosing Penalty shoes comes with some big perks:</p>
-                            <ul class="feature-list">
-                                <li>Superior Quality: Built with high-performance materials for durability and comfort.</li>
-                                <li>Advanced Technology: Features like soles designed for better grip and control.</li>
-                            </ul>
-                            <p>We've got cleats for every player and surface, whether you're just starting or competing professionally. And with international recognition, Penalty cleats are a trusted choice worldwide.</p>
+                                <h2 class="h3 mb-4">Our Shoes</h2>
+                                <p class="mb-4">Choosing Penalty shoes comes with some big perks:</p>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-dark me-2"></i>Superior Quality: Built with high-performance materials for durability and comfort.</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-dark me-2"></i>Advanced Technology: Features like soles designed for better grip and control.</li>
+                                </ul>
+                                <p>We've got cleats for every player and surface, whether you're just starting or competing professionally. And with international recognition, Penalty cleats are a trusted choice worldwide.</p>
+                            </div>
                         </div>
+                    </div>
+                </section>
 
-                        <!-- Video Section -->
-                        <section class="video-section" id="company-video">
-                            <div class="video-container">
-                                <h2>Our Story</h2>
-                                <div class="video-wrapper">
+                <!-- Video Section -->
+                <section id="company-video" class="py-5 bg-light">
+                    <div class="container">
+                        <h2 class="text-center mb-4">Our Story</h2>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm">
                                     <video 
-                                        id="companyVideo"
-                                        class="company-video"
                                         controls
                                         preload="metadata"
-                                        poster="images/about/video-thumbnail.jpg">
+                                        poster="images/about/video-thumbnail.jpg"
+                                        class="object-fit-cover">
                                         <source src="video/video-export-2025-01-09.mp4" type="video/mp4">
-                                        <!-- Fallback message -->
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-                                <p class="video-description">
+                                <p class="text-center text-muted mt-4">
                                     Discover the passion and innovation that drives Penalty Sports. 
                                     Watch our story and see how we're shaping the future of sports equipment.
                                 </p>
                             </div>
-                        </section>
+                        </div>
+                    </div>
+                </section>
 
-                        <!-- Technologies Section -->
-                        <h2 class="about-section-header" id="technologies">Our Technologies</h2>
-                        <div class="tech-grid">
+                <!-- Technologies Section -->
+                <section id="technologies" class="py-5">
+                    <div class="container">
+                        <h2 class="text-center mb-5">Our Technologies</h2>
+                        <div class="row g-4">
                             <!-- Ball Technology Card -->
-                            <div class="tech-card" data-tech="balls">
-                                <div class="tech-icon">
-                                    <img src="images\our_technologies\balls\image1.jpg" alt="Ball Technology">
-                                </div>
-                                <div class="tech-content">
-                                    <h3>Termotec Technology</h3>
-                                    <p>Our revolutionary ball manufacturing process</p>
-                                    <button class="tech-details-btn" data-tech="balls">Learn More</button>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="images/our_technologies/balls/image1.jpg" alt="Ball Technology" class="mb-4 img-fluid rounded">
+                                        <h3 class="h4 mb-3">Termotec Technology</h3>
+                                        <p class="text-muted mb-4">Our revolutionary ball manufacturing process</p>
+                                        <button class="btn btn-dark w-100">Learn More</button>
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Shoes Technology Card -->
-                            <div class="tech-card" data-tech="shoes">
-                                <div class="tech-icon">
-                                    <img src="images/tech-icons/shoe-icon.png" alt="Shoe Technology">
-                                </div>
-                                <div class="tech-content">
-                                    <h3>Grip Control System</h3>
-                                    <p>Advanced sole technology for superior control</p>
-                                    <button class="tech-details-btn" data-tech="shoes">Learn More</button>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="images/tech-icons/shoe-icon.png" alt="Shoe Technology" class="mb-4 img-fluid rounded">
+                                        <h3 class="h4 mb-3">Grip Control System</h3>
+                                        <p class="text-muted mb-4">Advanced sole technology for superior control</p>
+                                        <button class="btn btn-dark w-100">Learn More</button>
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Materials Technology Card -->
-                            <div class="tech-card" data-tech="materials">
-                                <div class="tech-icon">
-                                    <img src="images/tech-icons/material-icon.png" alt="Materials Technology">
-                                </div>
-                                <div class="tech-content">
-                                    <h3>Smart Materials</h3>
-                                    <p>Innovative materials for durability and performance</p>
-                                    <button class="tech-details-btn" data-tech="materials">Learn More</button>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="images/tech-icons/material-icon.png" alt="Materials Technology" class="mb-4 img-fluid rounded">
+                                        <h3 class="h4 mb-3">Smart Materials</h3>
+                                        <p class="text-muted mb-4">Innovative materials for durability and performance</p>
+                                        <button class="btn btn-dark w-100">Learn More</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- Catalogs Section -->
-                <section id="catalogs" class="catalogs-section">
-                    <h2 class="about-section-header">Product Catalogs</h2>
-                    <div class="catalogs-grid">
-                        <!-- Equipment Catalog -->
-                        <div class="catalog-card">
-                            <div class="catalog-icon">
-                                <img src="images/pdf-icon.png" alt="PDF Icon">
+                <section id="catalogs" class="py-5 bg-light">
+                    <div class="container">
+                        <h2 class="text-center mb-5">Product Catalogs</h2>
+                        <div class="row g-4">
+                            <!-- Equipment Catalog -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="images/about/equipment-thumbnail.jpg" alt="PDF Icon" class="mb-3">
+                                        <h3 class="h5 mb-3">Equipment</h3>
+                                        <p class="text-muted small mb-4">Complete guide to our sports equipment collection</p>
+                                        <a href="pdf catalogs/equipment.pdf" class="btn btn-dark w-100" target="_blank">
+                                            View Catalog
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="catalog-content">
-                                <h3>Equipment Catalog</h3>
-                                <p>Complete guide to our sports equipment collection</p>
-                                <a href="pdf catalogs/equipment.pdf" class="catalog-download-btn" target="_blank">
-                                    View Catalog
-                                </a>
-                            </div>
-                        </div>
 
-                        <!-- Ball Catalog -->
-                        <div class="catalog-card">
-                            <div class="catalog-icon">
-                                <img src="images/pdf-icon.png" alt="PDF Icon">
+                            <!-- Ball Catalog -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="images/about/balls-thumbnail.jpg" alt="PDF Icon" class="mb-3">
+                                        <h3 class="h5 mb-3">Balls</h3>
+                                        <p class="text-muted small mb-4">Explore our professional sports balls collection</p>
+                                        <a href="pdf catalogs/ball.pdf" class="btn btn-dark w-100" target="_blank">
+                                            View Catalog
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="catalog-content">
-                                <h3>Ball Catalog</h3>
-                                <p>Explore our professional sports balls collection</p>
-                                <a href="pdf catalogs/ball.pdf" class="catalog-download-btn" target="_blank">
-                                    View Catalog
-                                </a>
-                            </div>
-                        </div>
 
-                        <!-- Apparel Catalog -->
-                        <div class="catalog-card">
-                            <div class="catalog-icon">
-                                <img src="images/pdf-icon.png" alt="PDF Icon">
+                            <!-- Apparel Catalog -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="images/about/apparel-thumbnail.jpg" alt="PDF Icon" class="mb-3">
+                                        <h3 class="h5 mb-3">Apparel</h3>
+                                        <p class="text-muted small mb-4">Browse our sports apparel and uniforms</p>
+                                        <a href="pdf catalogs/apparel.pdf" class="btn btn-dark w-100" target="_blank">
+                                            View Catalog
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="catalog-content">
-                                <h3>Apparel Catalog</h3>
-                                <p>Browse our sports apparel and uniforms</p>
-                                <a href="pdf catalogs/apparel.pdf" class="catalog-download-btn" target="_blank">
-                                    View Catalog
-                                </a>
-                            </div>
-                        </div>
 
-                        <!-- Shoes Catalog -->
-                        <div class="catalog-card">
-                            <div class="catalog-icon">
-                                <img src="images/pdf-icon.png" alt="PDF Icon">
-                            </div>
-                            <div class="catalog-content">
-                                <h3>Shoes Catalog</h3>
-                                <p>Discover our sports footwear collection</p>
-                                <a href="pdf catalogs/shoes.pdf" class="catalog-download-btn" target="_blank">
-                                    View Catalog
-                                </a>
+                            <!-- Shoes Catalog -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="images/about/shoes-thumbnail.jpg" alt="PDF Icon" class="mb-3">
+                                        <h3 class="h5 mb-3">Shoes</h3>
+                                        <p class="text-muted small mb-4">Discover our sports footwear collection</p>
+                                        <a href="pdf catalogs/shoes.pdf" class="btn btn-dark w-100" target="_blank">
+                                            View Catalog
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-                <!-- Bottom Hero Section -->
-                <section class="hero-section">
-                    <div class="hero-container">
-                        <div class="hero-image">
-                            <img src="images/Audience.jpg" alt="Penalty Sports Equipment">
-                        </div>
-                        <div class="hero-overlay">
-                         <!-- add overlay text here -->
-                        </div>
-                    </div>
-                </section>
-            </section>
+            </main>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="mb-4">
+                        <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Penalty logo" class="img-fluid mb-3" style="max-width: 200px;">
+                        <p class="mb-0">TEAM UP TO WIN!</p>
+                    </div>
                 </div>
-                <p>TEAM UP TO WIN!</p>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="store.html" class="text-light text-decoration-none">Catalogue</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                        <li><a href="#terms" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Contact Info</h4>
+                    <ul class="list-unstyled">
+                        <li>Email: info@wholesale-penalty.com</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Address: 123 Sports Ave,</li>
+                        <li>City, State 12345</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Follow Us</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Facebook</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Instagram</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Twitter</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">LinkedIn</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="store.html">Catalogue</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#terms">Terms & Conditions</a></li>
-                </ul>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <p class="mb-0">&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <ul class="footer-links">
-                    <li>Email: info@wholesale-penalty.com</li>
-                    <li>Phone: (555) 123-4567</li>
-                    <li>Address: 123 Sports Ave,</li>
-                    <li>City, State 12345</li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="scripts/navbar.js"></script>
-    <script src="scripts/about.js"></script>
-    <!-- Add logging for script loading -->
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Sidebar Navigation Script -->
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            // Add smooth scrolling to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Update active link on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+
         console.log('About page scripts loaded successfully');
         window.addEventListener('DOMContentLoaded', () => {
             console.log('About page DOM fully loaded and parsed');

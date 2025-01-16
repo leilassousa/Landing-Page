@@ -1,0 +1,132 @@
+/* Store Page Specific Styles */
+
+/* Custom Properties */
+:root {
+    --color-dark: #212529;
+    --color-gray: #6c757d;
+    --color-light-gray: #f8f9fa;
+    --color-off-white: #f5f5f5;
+}
+
+/* Category Filters */
+#category-filters .btn {
+    min-width: 120px;
+    transition: all 0.2s ease;
+}
+
+#category-filters .btn.active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Product Cards */
+.product-card {
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #dee2e6;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-card .card-img-top {
+    height: 250px;
+    object-fit: contain;
+    background-color: var(--color-light-gray);
+    padding: 1rem;
+}
+
+.product-card .card-body {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.product-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+}
+
+.product-card .card-text {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    flex-grow: 1;
+}
+
+.product-card .card-footer {
+    background-color: transparent;
+    border-top: none;
+    padding-top: 0;
+}
+
+.product-card .btn-primary {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+    color: white;
+}
+
+.product-card .btn-primary:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
+/* Highlighted Products */
+.product-card.highlighted {
+    border-color: var(--color-dark);
+}
+
+.product-card.highlighted::before {
+    content: 'Featured';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--color-dark);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    color: var(--color-dark);
+}
+
+.empty-state p {
+    color: var(--color-gray);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #category-filters .btn {
+        min-width: 100px;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .product-card .card-img-top {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-card .card-img-top {
+        height: 180px;
+    }
+} 

@@ -1,84 +1,106 @@
 // Import products data
 import { products } from './products.js';
 
-// DOM Elements
-const productsGrid = document.getElementById('productsGrid');
-const categoryFilters = document.getElementById('categoryFilters');
+// Logging for debugging
+console.log('Store script initialized');
+console.log('Total products:', products.length);
 
-// Get unique categories from products
-function getCategories() {
-    console.log('Getting unique categories');
-    const categories = ['all', ...new Set(products.map(p => p.category))];
-    return categories;
+// DOM Elements
+const productsGrid = document.getElementById('products-grid');
+const categoryFilters = document.getElementById('category-filters');
+
+// Get category from URL if present
+const urlParams = new URLSearchParams(window.location.search);
+const initialCategory = urlParams.get('category') || 'all';
+
+// Log initial category
+console.log('Initial category:', initialCategory);
+
+// Initialize store
+function initStore() {
+    // Set initial active category
+    const initialButton = categoryFilters.querySelector(`[data-category="${initialCategory}"]`);
+    if (initialButton) {
+        initialButton.classList.add('active');
+    }
+
+    // Add click handlers to category buttons
+    categoryFilters.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active state
+            categoryFilters.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filter products
+            const category = button.dataset.category;
+            filterProducts(category);
+
+            // Update URL
+            const newUrl = new URL(window.location);
+            if (category === 'all') {
+                newUrl.searchParams.delete('category');
+            } else {
+                newUrl.searchParams.set('category', category);
+            }
+            window.history.pushState({}, '', newUrl);
+        });
+    });
+
+    // Initial product load
+    filterProducts(initialCategory);
 }
 
-// Render category filters
-function renderCategories() {
-    console.log('Rendering category filters');
-    const categories = getCategories();
+// Filter and display products
+function filterProducts(category) {
+    console.log('Filtering products by category:', category);
     
-    categoryFilters.innerHTML = categories
-        .map(category => `
-            <button class="category-btn ${category === 'all' ? 'active' : ''}" 
-                    data-category="${category}">
-                ${category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-        `)
-        .join('');
+    // Filter products
+    const filteredProducts = category === 'all' 
+        ? products 
+        : products.filter(product => product.category === category);
 
-    // Add event listeners to category buttons
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.dataset.category;
-            console.log('Category selected:', category);
-            
-            // Update active state
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Filter products
-            filterProducts(category);
-        });
+    console.log('Filtered products:', filteredProducts.length);
+
+    // Clear current products
+    productsGrid.innerHTML = '';
+
+    if (filteredProducts.length === 0) {
+        // Show empty state
+        productsGrid.innerHTML = `
+            <div class="col-12">
+                <div class="empty-state">
+                    <i class="bi bi-search"></i>
+                    <h3>No Products Found</h3>
+                    <p class="text-muted">No products available in this category.</p>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    // Display filtered products
+    filteredProducts.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'col-md-6 col-lg-4';
+        
+        productCard.innerHTML = `
+            <div class="card product-card ${product.highlighted ? 'highlighted' : ''}">
+                <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${product.name}</h5>
+                    <p class="card-text">${product.description}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid">
+                        <a href="product.html?id=${product.id}" class="btn btn-dark">View Details</a>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        productsGrid.appendChild(productCard);
     });
 }
 
-// Filter and render products
-function filterProducts(category = 'all') {
-    console.log('Filtering products by category:', category);
-    
-    const filteredProducts = category === 'all' 
-        ? products 
-        : products.filter(p => p.category === category);
-
-    renderProducts(filteredProducts);
-}
-
-// Render products in grid
-function renderProducts(productsToRender) {
-    console.log('Rendering products:', productsToRender);
-    
-    productsGrid.innerHTML = productsToRender
-        .map(product => `
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}">
-                </div>
-                <div class="product-info">
-                    <h3>${product.name}</h3>
-                    <a href="product.html?id=${product.id}" class="view-product-btn">View Details</a>
-                </div>
-            </div>
-        `)
-        .join('');
-}
-
-// Initialize the page
-function init() {
-    console.log('Initializing store page');
-    renderCategories();
-    filterProducts('all');
-}
-
-// Run initialization when DOM is loaded
-document.addEventListener('DOMContentLoaded', init); 
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initStore); 

@@ -1,217 +1,163 @@
-/* About Page Styles */
-.about-section {
-    padding: 0;
-    background: #fff;
+/* About Page Specific Styles */
+
+:root {
+    --color-dark: #212529;
+    --color-gray: #6c757d;
+    --color-light-gray: #f8f9fa;
+    --color-off-white: #f5f5f5;
+    --sidebar-width: 250px;
+    --max-content-width: 1400px;
 }
 
-.about-container {
-    max-width: 1200px;
+/* Layout */
+.about-layout {
+    display: flex;
+    min-height: 100vh;
+    max-width: var(--max-content-width);
     margin: 0 auto;
-    padding: 2rem;
+    position: relative;
 }
 
-/* Hero Image Styles */
+/* Sidebar Navigation */
+.sidebar-nav {
+    width: var(--sidebar-width);
+    background: var(--color-light-gray);
+    padding: 2rem 1rem;
+    position: fixed;
+    top: 56px;
+    left: 50%;
+    transform: translateX(calc(-1 * var(--max-content-width) / 2));
+    overflow-y: auto;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    display: none;
+    margin-bottom: 300px;
+    height: 50%;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 1rem;
+}
+
+.sidebar-nav li:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-nav a {
+    color: var(--color-gray);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    display: block;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+    color: var(--color-dark);
+    background-color: rgba(0,0,0,0.05);
+}
+
+.sidebar-nav a.active {
+    color: white;
+    background-color: var(--color-dark);
+}
+
+/* Main Content Container */
+.main-container {
+    flex: 1;
+    margin-left: 0;
+    max-width: calc(var(--max-content-width) - var(--sidebar-width));
+}
+
+/* Hero Section */
 .about-hero {
-    width: 100%;
     height: 500px;
     position: relative;
     overflow: hidden;
-    margin-top: 80px; /* Account for navbar */
+    margin-top: -1px;
 }
 
-.about-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Card Hover Effects */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Main Content Styles */
-.about-content {
-    background: white;
-    padding: 3rem;
-    border-radius: 12px;
-    margin-top: 2rem;
-}
-
-.about-content h1 {
-    font-size: 3.5rem;
-    color: #111111;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.about-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 2rem;
-}
-
-.about-text p {
-    margin-bottom: 1.5rem;
-}
-
-/* Section Headers */
-.about-section-header {
-    font-size: 2rem;
-    color: #111111;
-    margin: 3rem 0 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-/* Video Section Styles */
-.video-section {
-    padding: 40px 0;
-    background-color: #f8f9fa;
-    text-align: center;
-}
-
-.video-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.company-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-color: #000;
-}
-
-/* Video controls customization */
-.company-video::-webkit-media-controls {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.company-video:focus {
-    outline: none;
-}
-
-.video-description {
-    text-align: center;
-    margin-top: 1.5rem;
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Technologies Section */
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.tech-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.tech-card:hover {
+.card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
 }
 
-.tech-icon {
-    width: 100%;
-    height: 160px;
-    background: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+/* Video Player Customization */
+.ratio video {
+    background-color: var(--color-dark);
 }
 
-.tech-icon img {
-    max-width: 100%;
-    max-height: 100%;
+/* Technology Cards */
+.card img {
+    max-height: 150px;
     object-fit: contain;
 }
 
-.tech-content {
-    padding: 1.5rem;
-    text-align: center;
+/* Responsive Adjustments */
+@media (min-width: 992px) {
+    .sidebar-nav {
+        display: block;
+    }
+
+    .main-container {
+        margin-left: var(--sidebar-width);
+    }
 }
 
-.tech-content h3 {
-    font-size: 1.3rem;
-    color: #111111;
-    margin-bottom: 0.5rem;
+@media (max-width: 991px) {
+    .about-layout {
+        max-width: 100%;
+    }
+
+    .main-container {
+        max-width: 100%;
+    }
 }
 
-.tech-content p {
-    color: #666;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-}
-
-.tech-details-btn {
-    background: #111111;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.tech-details-btn:hover {
-    background: #333;
-    transform: translateY(-2px);
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .about-hero {
         height: 300px;
-        margin-top: 60px;
-    }
-
-    .about-content {
-        margin: -40px 1rem 0;
-        padding: 2rem;
-    }
-
-    .about-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .about-text {
-        font-size: 1rem;
-    }
-
-    .video-wrapper {
-        padding-bottom: 75%; /* Slightly taller aspect ratio on mobile */
     }
 }
 
-@media (max-width: 480px) {
-    .about-content h1 {
-        font-size: 2rem;
-    }
+/* Catalog Cards */
+#catalogs .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-    .about-section-header {
-        font-size: 1.5rem;
-    }
+#catalogs .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2rem;
+}
+
+#catalogs .card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto 1.5rem;
+}
+
+#catalogs .card p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+#catalogs .card .btn {
+    margin-top: auto;
 } 

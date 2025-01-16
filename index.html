@@ -3,164 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Equipment Bundles</title>
+    <title>Home - Your Company</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/base-styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/carousel.css">
+    <!-- Add logging for style loading -->
+    <script>
+        console.log('Styles loaded successfully');
+    </script>
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" style="width: 170px;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" height="40">
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <div class="nav-right" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="store.html">STORE</a></li>
-                    <li><a href="about.html">ABOUT US</a></li>
-                    <li><a href="contact.html">CONTACT US</a></li>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="store.html">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT US</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section with Carousel -->
-    <section class="hero">
-        <div class="hero-carousel">
-            <div class="carousel-slides">
-                <div class="carousel-slide active"></div>
-                <div class="carousel-slide"></div>
-                <div class="carousel-slide"></div>
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/home-carousel/banner1.jpg" class="d-block w-100" alt="Penalty Sports Slide 1">
             </div>
-            <div class="carousel-indicators"></div>
+            <div class="carousel-item">
+                <img src="images/home-carousel/banner2.jpg" class="d-block w-100" alt="Penalty Sports Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="images/home-carousel/banner3.jpg" class="d-block w-100" alt="Penalty Sports Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="images/home-carousel/banner4.jpg" class="d-block w-100" alt="Penalty Sports Slide 4">
+            </div>
+        </div>
+    </div>
+
+    <!-- Explanation Section -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="display-5 mb-4">We are the leader brand of soccer equipment in Brazil</h2>
+            <p class="lead mb-0">We believe in the transformative power of sports. That's why we design superior products for beginners through to professional athletes.</p>
         </div>
     </section>
 
-    <!-- Explanation Section -->
-    <section class="explanation">
-        <h2>We are the leader brand of soccer equipment in Brazil</h2>
-        <p>We believe in the transformative power of sports. That's why we design superior products for beginners through to professional athletes.</p>
-    </section>
-
-    <!-- Bundles Grid -->
-    <section class="bundles">
-        <h2>Highlighted products</h2>
-        <div class="bundles-grid" id="bundlesGrid">
-            <!-- Highlighted products will be dynamically inserted here -->
+    <!-- Featured Products Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Highlighted Products</h2>
+            <div id="bundlesGrid">
+                <!-- Products will be dynamically inserted here by featured-products.js -->
+            </div>
         </div>
     </section>
 
     <!-- Two Column Section -->
-    <section class="two-column-section">
-        <div class="column image-column">
-            <!-- Background image will be set in CSS -->
-        </div>
-        <div class="column content-column">
-            <h2>Max 1000 Ecoknit Football Shoes</h2>
-            <p>With 50 years of partnership with futsal, Penalty is proud to create an ecological product for the sport, once again using the latest technology.</p>
-            <p>With Ecoknit fabric, recycled from PET bottles, Penalty contributes to environmental sustainability, without leaving performance aside.</p>
-            <p>The new Penalty Ecoknit is a product that is 100% recyclable, with a 100% recycled content, and with a 100% recycled content.</p>
-            <h2>Penalty S11 Ecoknit Ball</h2>
-            <p>Since 2019, the Penalty S11 Ecoknit Ball has been used in Campeonato Paulista, reusing 4.5 PET bottles per unit. Made with 62% sustainable or recyclable materials, including sugarcane derivatives, this FIFA-certified ball has helped recycle over 500,000 bottles—a number projected to exceed 250,000 by the end of 2024.</p>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/home/technologies.jpg" alt="Football Shoes" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="mb-4">Max 1000 Ecoknit Football Shoes</h2>
+                    <p>With 50 years of partnership with futsal, Penalty is proud to create an ecological product for the sport, once again using the latest technology.</p>
+                    <p>With Ecoknit fabric, recycled from PET bottles, Penalty contributes to environmental sustainability, without leaving performance aside.</p>
+                    <h2 class="mt-5 mb-4">Penalty S11 Ecoknit Ball</h2>
+                    <p>Since 2019, the Penalty S11 Ecoknit Ball has been used in Campeonato Paulista, reusing 4.5 PET bottles per unit. Made with 62% sustainable or recyclable materials, including sugarcane derivatives, this FIFA-certified ball has helped recycle over 500,000 bottles—a number projected to exceed 250,000 by the end of 2024.</p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="mb-4">
+                        <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Penalty logo" class="img-fluid mb-3" style="max-width: 200px;">
+                        <p class="mb-0">TEAM UP TO WIN!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="store.html" class="text-light text-decoration-none">Catalogue</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                        <li><a href="#terms" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Contact Info</h4>
+                    <ul class="list-unstyled">
+                        <li>Email: info@wholesale-penalty.com</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Address: 123 Sports Ave,</li>
+                        <li>City, State 12345</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Follow Us</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Facebook</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Instagram</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Twitter</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <p class="mb-0">&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Product Modal -->
-    <div class="modal" id="productModal">
-        <div class="modal-content">
-            <div id="modalContent"></div>
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Quote Form Modal -->
-    <div class="modal" id="quoteModal">
-        <div class="modal-content">
-            <div class="quote-form-container">
-                <h2>Request a Quote</h2>
-                <form id="quoteForm" class="quote-form">
-                    <div class="form-group">
-                        <label for="quoteName">Name</label>
-                        <input type="text" id="quoteName" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteEmail">Email</label>
-                        <input type="email" id="quoteEmail" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quotePhone">Phone</label>
-                        <input type="tel" id="quotePhone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteProduct">Selected Product</label>
-                        <input type="text" id="quoteProduct" name="product" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteQuantity">Quantity</label>
-                        <input type="number" id="quoteQuantity" name="quantity" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quoteMessage">Message</label>
-                        <textarea id="quoteMessage" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Submit Quote Request</button>
-                </form>
+    <div class="modal fade" id="quoteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Request a Quote</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quoteForm">
+                        <div class="mb-3">
+                            <label for="quoteName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="quoteName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="quoteEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quotePhone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="quotePhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteProduct" class="form-label">Selected Product</label>
+                            <input type="text" class="form-control" id="quoteProduct" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteQuantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quoteQuantity" min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="quoteMessage" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit Quote Request</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images\PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
-                </div>
-                <p>TEAM UP TO WIN!</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="store.html">Catalogue</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#terms">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <ul class="footer-links">
-                    <li>Email: info@wholesale-penalty.com</li>
-                    <li>Phone: (555) 123-4567</li>
-                    <li>Address: 123 Sports Ave,</li>
-                    <li>City, State 12345</li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="products.js" type="module"></script>
-    <script src="script.js" type="module"></script>
-    <script src="navbar.js" type="module"></script>
-    <script src="carousel.js" type="module"></script>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="scripts/featured-products.js" type="module"></script>
+    <!-- Add logging for script loading -->
+    <script>
+        console.log('All scripts loaded successfully');
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM fully loaded and parsed');
+        });
+    </script>
 </body>
 </html>

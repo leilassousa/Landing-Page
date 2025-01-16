@@ -6,73 +6,96 @@
     <title>Product Details - Penalty Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="product.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/base-styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/product.css">
+    <!-- Add logging for style loading -->
+    <script>
+        console.log('Product page styles loaded successfully');
+    </script>
 </head>
 <body>
-    <!-- Navigation Bar (reused from index.html) -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" style="width: 170px;">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Company Logo" height="40">
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <div class="nav-right" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="store.html">STORE</a></li>
-                    <li><a href="about.html">ABOUT US</a></li>
-                    <li><a href="contact.html">CONTACT US</a></li>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="store.html">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT US</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Product Main Section -->
-    <div class="product-container">
-        <div class="product-image-section">
-            <img id="main-product-image" src="" alt="">
-            <div id="thumbnail-strip"></div>
-        </div>
+    <div class="container py-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="store.html" id="product-category"></a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="product-name"></li>
+            </ol>
+        </nav>
 
-        <div class="product-info-section">
-            <!-- Breadcrumb -->
-            <div class="breadcrumb">
-                <span id="product-category"></span> / <span id="product-name"></span>
+        <div class="row">
+            <!-- Product Images -->
+            <div class="col-md-6 mb-4">
+                <img id="main-product-image" src="" alt="" class="img-fluid rounded shadow-sm mb-3">
+                <div id="thumbnail-strip" class="d-flex gap-2"></div>
             </div>
 
-            <!-- Product Title -->
-            <h1 id="product-title"></h1>
+            <!-- Product Info -->
+            <div class="col-md-6">
+                <h1 id="product-title" class="mb-3"></h1>
+                <p id="product-description" class="lead mb-4"></p>
 
-            <!-- Product Description -->
-            <p id="product-description"></p>
-
-            <!-- Variations Section -->
-            <div class="variations-wrapper">
-                <h2>Variations</h2>
-                <div id="variants-section"></div>
-            </div>
-
-            <!-- Add to Quote Button -->
-            <button id="add-to-quote" class="primary-button">Add to quote basket</button>
-
-            <!-- Tabs Section -->
-            <div class="tabs-container">
-                <div class="tab-buttons">
-                    <button class="tab-btn active" data-tab="features-tab">Features</button>
-                    <button class="tab-btn" data-tab="details-tab">Details</button>
+                <!-- Variations Section -->
+                <div class="mb-4">
+                    <h5>Variations</h5>
+                    <div id="variants-section" class="d-flex flex-wrap gap-2"></div>
                 </div>
 
-                <div class="tab-content">
-                    <!-- Features Tab -->
-                    <div id="features-tab" class="tab-pane active">
-                        <ul id="product-features"></ul>
-                    </div>
+                <!-- Add to Quote Button -->
+                <button id="add-to-quote" class="btn btn-primary btn-lg mb-4">Add to quote basket</button>
 
-                    <!-- Details Tab -->
-                    <div id="details-tab" class="tab-pane">
-                        <ul id="product-details"></ul>
+                <!-- Features and Details Tabs -->
+                <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#features-tab" type="button">Features</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#details-tab" type="button">Details</button>
+                    </li>
+                </ul>
+                <div class="tab-content py-3">
+                    <div class="tab-pane fade show active" id="features-tab">
+                        <ul id="product-features" class="list-unstyled"></ul>
+                    </div>
+                    <div class="tab-pane fade" id="details-tab">
+                        <ul id="product-details" class="list-unstyled"></ul>
                     </div>
                 </div>
             </div>
@@ -80,59 +103,109 @@
     </div>
 
     <!-- Related Products Section -->
-    <section class="related-products">
-        <h2>Related Products</h2>
-        <div id="related-products" class="products-grid"></div>
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Related Products</h2>
+            <div id="related-products" class="row g-4"></div>
+        </div>
     </section>
 
-    <!-- Footer (reused from index.html) -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Penalty logo">
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="mb-4">
+                        <img src="images/PNTY_Brand_Horizontal_branco.png" alt="Penalty logo" class="img-fluid mb-3" style="max-width: 200px;">
+                        <p class="mb-0">TEAM UP TO WIN!</p>
+                    </div>
                 </div>
-                <p>TEAM UP TO WIN!</p>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="store.html" class="text-light text-decoration-none">Catalogue</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                        <li><a href="#terms" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Contact Info</h4>
+                    <ul class="list-unstyled">
+                        <li>Email: info@wholesale-penalty.com</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Address: 123 Sports Ave,</li>
+                        <li>City, State 12345</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 mb-3">Follow Us</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Facebook</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Instagram</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Twitter</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">LinkedIn</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="store.html">Catalogue</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#terms">Terms & Conditions</a></li>
-                </ul>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <p class="mb-0">&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <ul class="footer-links">
-                    <li>Email: info@wholesale-penalty.com</li>
-                    <li>Phone: (555) 123-4567</li>
-                    <li>Address: 123 Sports Ave,</li>
-                    <li>City, State 12345</li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Penalty Sports Equipment Company. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="products.js" type="module"></script>
-    <script src="navbar.js" type="module"></script>
-    <script src="product.js" type="module"></script>
+    <!-- Quote Form Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Request a Quote</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quoteForm">
+                        <div class="mb-3">
+                            <label for="quoteName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="quoteName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="quoteEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quotePhone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="quotePhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteProduct" class="form-label">Selected Product</label>
+                            <input type="text" class="form-control" id="quoteProduct" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteQuantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quoteQuantity" min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="quoteMessage" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit Quote Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="scripts/product.js" type="module"></script>
+    <!-- Add logging for script loading -->
+    <script>
+        console.log('Product page scripts loaded successfully');
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('Product page DOM fully loaded and parsed');
+        });
+    </script>
 </body>
 </html> 

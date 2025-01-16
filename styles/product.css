@@ -1,0 +1,77 @@
+/* Product Page Specific Styles */
+
+/* Product Image */
+#main-product-image {
+    max-height: 500px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+}
+
+/* Thumbnail Strip */
+#thumbnail-strip img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+#thumbnail-strip img:hover {
+    border-color: var(--bs-primary);
+}
+
+/* Variants */
+#variants-section .btn {
+    margin: 0.25rem;
+    min-width: 120px;
+}
+
+#variants-section .btn.active {
+    background-color: var(--bs-primary);
+    color: white;
+    border-color: var(--bs-primary);
+}
+
+/* Features and Details */
+#product-features li,
+#product-details li {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+#product-features li i,
+#product-details li i {
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+}
+
+/* Related Products */
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+}
+
+/* Quote Modal */
+#quoteModal .modal-body {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #main-product-image {
+        max-height: 300px;
+    }
+    
+    #thumbnail-strip img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    #variants-section .btn {
+        min-width: 100px;
+    }
+} 

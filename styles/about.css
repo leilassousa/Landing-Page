@@ -1,0 +1,217 @@
+/* About Page Styles */
+.about-section {
+    padding: 0;
+    background: #fff;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Image Styles */
+.about-hero {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px; /* Account for navbar */
+}
+
+.about-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main Content Styles */
+.about-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.about-content h1 {
+    font-size: 3.5rem;
+    color: #111111;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+/* Section Headers */
+.about-section-header {
+    font-size: 2rem;
+    color: #111111;
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Video Section Styles */
+.video-section {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.company-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #000;
+}
+
+/* Video controls customization */
+.company-video::-webkit-media-controls {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.company-video:focus {
+    outline: none;
+}
+
+.video-description {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Technologies Section */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.tech-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.tech-icon {
+    width: 100%;
+    height: 160px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.tech-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.tech-content {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.tech-content h3 {
+    font-size: 1.3rem;
+    color: #111111;
+    margin-bottom: 0.5rem;
+}
+
+.tech-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.tech-details-btn {
+    background: #111111;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.tech-details-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-hero {
+        height: 300px;
+        margin-top: 60px;
+    }
+
+    .about-content {
+        margin: -40px 1rem 0;
+        padding: 2rem;
+    }
+
+    .about-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .video-wrapper {
+        padding-bottom: 75%; /* Slightly taller aspect ratio on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-section-header {
+        font-size: 1.5rem;
+    }
+} 

@@ -8,6 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="about.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add logging for style loading -->
+    <script>
+        console.log('About page styles loaded successfully');
+    </script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -33,10 +39,10 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <ul class="sidebar-nav">
-                <li><a href="#company-intro">Our Story</a></li>
-                <li><a href="#company-video">Institutional Video</a></li>
-                <li><a href="#technologies">Our Technologies</a></li>
-                <li><a href="#catalogs">Product Catalogs</a></li>
+                <li><a href="#company-intro">About</a></li>
+                <li><a href="#company-video">Video</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#catalogs">Catalogs</a></li>
             </ul>
         </aside>
 
@@ -46,7 +52,7 @@
             <section class="about-section">
                 <!-- Hero Image -->
                 <div class="about-hero">
-                    <img src="images\home_carrousel\banner4.jpg" alt="About Penalty Sports">
+                    <img src="images/about/hero-banner.jpg" alt="About Penalty Sports">
                 </div>
 
                 <!-- Main Content -->
@@ -79,14 +85,16 @@
                             <div class="video-container">
                                 <h2>Our Story</h2>
                                 <div class="video-wrapper">
-                                    <!-- Replace VIDEO_ID with your actual YouTube video ID -->
-                                    <iframe 
-                                        src="https://youtu.be/U15IHVUaZmM?si=A3DzsM1RLJ1wcdKe" 
-                                        title="Penalty Sports Company Video" 
-                                        frameborder="0" 
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                        allowfullscreen>
-                                    </iframe>
+                                    <video 
+                                        id="companyVideo"
+                                        class="company-video"
+                                        controls
+                                        preload="metadata"
+                                        poster="images/about/video-thumbnail.jpg">
+                                        <source src="video/video-export-2025-01-09.mp4" type="video/mp4">
+                                        <!-- Fallback message -->
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </div>
                                 <p class="video-description">
                                     Discover the passion and innovation that drives Penalty Sports. 
@@ -260,7 +268,15 @@
         </div>
     </footer>
 
-    <script src="navbar.js"></script>
-    <script src="about.js"></script>
+    <!-- Scripts -->
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/about.js"></script>
+    <!-- Add logging for script loading -->
+    <script>
+        console.log('About page scripts loaded successfully');
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('About page DOM fully loaded and parsed');
+        });
+    </script>
 </body>
 </html> 

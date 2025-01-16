@@ -111,7 +111,7 @@
                                     <video 
                                         controls
                                         preload="metadata"
-                                        poster="images/about/video-thumbnail.jpg"
+                                        poster="video/video-thumbnail.jpg"
                                         class="object-fit-cover">
                                         <source src="video/video-export-2025-01-09.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
@@ -131,38 +131,42 @@
                     <div class="container">
                         <h2 class="text-center mb-5">Our Technologies</h2>
                         <div class="row g-4">
-                            <!-- Ball Technology Card -->
+                            <!-- 6D Chamber -->
                             <div class="col-md-4">
-                                <div class="card h-100 border-0 shadow-sm">
+                                <div class="tech-card card h-100 border-0 shadow-sm">
                                     <div class="card-body text-center p-4">
-                                        <img src="images/our_technologies/balls/image1.jpg" alt="Ball Technology" class="mb-4 img-fluid rounded">
-                                        <h3 class="h4 mb-3">Termotec Technology</h3>
-                                        <p class="text-muted mb-4">Our revolutionary ball manufacturing process</p>
-                                        <button class="btn btn-dark w-100">Learn More</button>
+                                        <div class="tech-icon-wrapper mb-4">
+                                            <img src="images/about/technologythumbs/6dchamber.jpg" alt="Ball Technology" class="tech-icon">
+                                        </div>
+                                        <h3 class="h4 mb-3">6D Chamber</h3>
+                                        <p class="text-muted">Chamber built on butyl rubber with an innovative balancing system. Composed of 6 discs positioned symmetrically, providing total balance for the ball.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Shoes Technology Card -->
+                            <!-- Evacel -->
                             <div class="col-md-4">
-                                <div class="card h-100 border-0 shadow-sm">
+                                <div class="tech-card card h-100 border-0 shadow-sm">
                                     <div class="card-body text-center p-4">
-                                        <img src="images/tech-icons/shoe-icon.png" alt="Shoe Technology" class="mb-4 img-fluid rounded">
-                                        <h3 class="h4 mb-3">Grip Control System</h3>
-                                        <p class="text-muted mb-4">Advanced sole technology for superior control</p>
-                                        <button class="btn btn-dark w-100">Learn More</button>
+                                        <div class="tech-icon-wrapper mb-4">
+                                            <img src="images/about/technologythumbs/evacel.jpg" alt="Shoe Technology" class="tech-icon">
+                                        </div>
+                                        <h3 class="h4 mb-3">Evacel</h3>
+                                        <p class="text-muted">Internal cushioning layer in microcellular compound, which can vary from 2.0mm to 3.8mm in thickness and provides greater comfort by reducing impact, turning the ball even softer.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Materials Technology Card -->
+                            <!-- Sys Capsule -->
                             <div class="col-md-4">
-                                <div class="card h-100 border-0 shadow-sm">
+                                <div class="tech-card card h-100 border-0 shadow-sm">
                                     <div class="card-body text-center p-4">
-                                        <img src="images/tech-icons/material-icon.png" alt="Materials Technology" class="mb-4 img-fluid rounded">
-                                        <h3 class="h4 mb-3">Smart Materials</h3>
-                                        <p class="text-muted mb-4">Innovative materials for durability and performance</p>
-                                        <button class="btn btn-dark w-100">Learn More</button>
+                                        <div class="tech-icon-wrapper mb-4">
+                                            <img src="images/about/technologythumbs/syscapsule.jpg" alt="Materials Technology" class="tech-icon">
+                                        </div>
+                                        <h3 class="h4 mb-3">SYS Capsule</h3>
+                                        <p class="text-muted">Lubricated and replaceable valve with an elongated nozzle that surrounds the needle,
+                                            preventing it from puncturing the air chamber.</p>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +177,7 @@
                 <!-- Catalogs Section -->
                 <section id="catalogs" class="py-5 bg-light">
                     <div class="container">
-                        <h2 class="text-center mb-5">Product Catalogs</h2>
+                        <img src="images/about/catalogs_banner.jpg" alt="Product Catalogs" class="img-fluid mb-5 w-100">
                         <div class="row g-4">
                             <!-- Equipment Catalog -->
                             <div class="col-md-6 col-lg-3">
@@ -183,8 +187,8 @@
                                         <h3 class="h5 mb-3">Equipment</h3>
                                         <p class="text-muted small mb-4">Complete guide to our sports equipment collection</p>
                                         <a href="pdf catalogs/equipment.pdf" class="btn btn-dark w-100" target="_blank">
-                                            View Catalog
-                                        </a>
+                                            View PDF
+                                        </a>"
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +201,7 @@
                                         <h3 class="h5 mb-3">Balls</h3>
                                         <p class="text-muted small mb-4">Explore our professional sports balls collection</p>
                                         <a href="pdf catalogs/ball.pdf" class="btn btn-dark w-100" target="_blank">
-                                            View Catalog
+                                            View PDF
                                         </a>
                                     </div>
                                 </div>
@@ -211,7 +215,7 @@
                                         <h3 class="h5 mb-3">Apparel</h3>
                                         <p class="text-muted small mb-4">Browse our sports apparel and uniforms</p>
                                         <a href="pdf catalogs/apparel.pdf" class="btn btn-dark w-100" target="_blank">
-                                            View Catalog
+                                            View PDF
                                         </a>
                                     </div>
                                 </div>
@@ -225,7 +229,7 @@
                                         <h3 class="h5 mb-3">Shoes</h3>
                                         <p class="text-muted small mb-4">Discover our sports footwear collection</p>
                                         <a href="pdf catalogs/shoes.pdf" class="btn btn-dark w-100" target="_blank">
-                                            View Catalog
+                                            View PDF
                                         </a>
                                     </div>
                                 </div>
@@ -325,6 +329,12 @@
         console.log('About page scripts loaded successfully');
         window.addEventListener('DOMContentLoaded', () => {
             console.log('About page DOM fully loaded and parsed');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const catalogsBanner = document.querySelector('#catalogs img');
+            catalogsBanner.onload = () => console.log('Catalogs banner image loaded successfully');
+            catalogsBanner.onerror = () => console.error('Error loading catalogs banner image');
         });
     </script>
 </body>

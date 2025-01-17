@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/base-styles.css">
     <link rel="stylesheet" href="styles/navbar.css">
@@ -46,10 +48,43 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">CONTACT US</a>
                     </li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-link nav-link position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="bi bi-cart fs-5"></i>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                                0
+                            </span>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-danger" onclick="window.cartModule.clearCart()">
+                        Clear Cart
+                    </button>
+                    <button type="button" class="btn btn-dark" onclick="window.location.href='quote-request.html'" id="request-quote-btn">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Product Main Section -->
     <div class="container py-5">
@@ -154,51 +189,12 @@
         </div>
     </footer>
 
-    <!-- Quote Form Modal -->
-    <div class="modal fade" id="quoteModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Request a Quote</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="quoteForm">
-                        <div class="mb-3">
-                            <label for="quoteName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="quoteName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="quoteEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="quoteEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="quotePhone" class="form-label">Phone</label>
-                            <input type="tel" class="form-control" id="quotePhone" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="quoteProduct" class="form-label">Selected Product</label>
-                            <input type="text" class="form-control" id="quoteProduct" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="quoteQuantity" class="form-label">Quantity</label>
-                            <input type="number" class="form-control" id="quoteQuantity" min="1" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="quoteMessage" class="form-label">Message</label>
-                            <textarea class="form-control" id="quoteMessage" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Submit Quote Request</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <!-- Custom Scripts -->
+    <script src="scripts/cart.js" type="module"></script>
+    <script src="scripts/navbar.js" type="module"></script>
     <script src="scripts/product.js" type="module"></script>
     <!-- Add logging for script loading -->
     <script>

@@ -1,5 +1,6 @@
-// Import products data
+// Import products data and cart module
 import { products } from './products.js';
+import * as cartModule from './cart.js';
 
 // Logging for debugging
 console.log('Product script initialized');
@@ -32,74 +33,68 @@ document.getElementById('product-description').textContent = product.description
 document.getElementById('main-product-image').src = product.image;
 document.getElementById('main-product-image').alt = product.name;
 
-// Populate variants
+// Handle variants if they exist
 const variantsSection = document.getElementById('variants-section');
+let selectedVariant = null;
+
 if (product.variants && product.variants.length > 0) {
-    product.variants.forEach(variant => {
+    variantsSection.parentElement.style.display = 'block';
+    product.variants.forEach((variant, index) => {
         const variantBtn = document.createElement('button');
-        variantBtn.className = 'btn btn-outline-secondary';
-        variantBtn.textContent = `${variant.color} - Size ${variant.size}`;
+        variantBtn.className = 'btn btn-outline-dark';
+        variantBtn.textContent = `${variant.size} - ${variant.color}`;
+        variantBtn.onclick = () => {
+            // Update selected variant
+            selectedVariant = variant;
+            // Update UI
+            variantsSection.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            variantBtn.classList.add('active');
+        };
         variantsSection.appendChild(variantBtn);
     });
+    // Select first variant by default
+    variantsSection.querySelector('.btn').click();
+} else {
+    variantsSection.parentElement.style.display = 'none';
 }
 
-// Populate features
-const featuresList = document.getElementById('product-features');
-product.features.forEach(feature => {
-    const li = document.createElement('li');
-    li.className = 'mb-2';
-    li.innerHTML = `<i class="bi bi-check2-circle text-success me-2"></i>${feature}`;
-    featuresList.appendChild(li);
-});
-
-// Populate details
-const detailsList = document.getElementById('product-details');
-product.details.forEach(detail => {
-    const li = document.createElement('li');
-    li.className = 'mb-2';
-    li.innerHTML = `<i class="bi bi-info-circle text-primary me-2"></i>${detail}`;
-    detailsList.appendChild(li);
-});
-
-// Handle quote button
+// Handle add to quote button
 const addToQuoteBtn = document.getElementById('add-to-quote');
-const quoteModal = new bootstrap.Modal(document.getElementById('quoteModal'));
-
 addToQuoteBtn.addEventListener('click', () => {
-    console.log('Opening quote modal for product:', product.name);
-    document.getElementById('quoteProduct').value = product.name;
-    quoteModal.show();
-});
-
-// Handle quote form submission
-document.getElementById('quoteForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log('Quote form submitted');
+    console.log('Adding product to cart:', product.name);
     
-    // Get form data
-    const formData = {
-        name: document.getElementById('quoteName').value,
-        email: document.getElementById('quoteEmail').value,
-        phone: document.getElementById('quotePhone').value,
-        product: document.getElementById('quoteProduct').value,
-        quantity: document.getElementById('quoteQuantity').value,
-        message: document.getElementById('quoteMessage').value
-    };
+    // Add to cart with selected variant
+    cartModule.addToCart(product, 1, selectedVariant);
     
-    // Log the form data
-    console.log('Quote form data:', formData);
+    // Show success toast
+    const toast = new bootstrap.Toast(document.createElement('div'));
+    toast.element.className = 'toast position-fixed bottom-0 end-0 m-3';
+    toast.element.setAttribute('role', 'alert');
+    toast.element.innerHTML = `
+        <div class="toast-header bg-success text-white">
+            <i class="bi bi-check-circle me-2"></i>
+            <strong class="me-auto">Success</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            ${product.name} added to quote basket
+        </div>
+    `;
+    document.body.appendChild(toast.element);
+    toast.show();
     
-    // Here you would typically send this data to your server
-    // For now, we'll just show a success message
-    alert('Thank you for your quote request. We will contact you soon!');
-    quoteModal.hide();
+    // Remove toast after it's hidden
+    toast.element.addEventListener('hidden.bs.toast', () => {
+        document.body.removeChild(toast.element);
+    });
 });
 
 // Load related products
 const relatedProducts = products
     .filter(p => p.category === product.category && p.id !== product.id)
-    .slice(0, 3); // Show up to 3 related products
+    .slice(0, 3);
 
+// Display related products
 const relatedProductsContainer = document.getElementById('related-products');
 relatedProducts.forEach(relatedProduct => {
     const productCard = document.createElement('div');
@@ -110,7 +105,9 @@ relatedProducts.forEach(relatedProduct => {
             <div class="card-body">
                 <h5 class="card-title">${relatedProduct.name}</h5>
                 <p class="card-text">${relatedProduct.description}</p>
-                <a href="product.html?id=${relatedProduct.id}" class="btn btn-primary">View Details</a>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+                <a href="product.html?id=${relatedProduct.id}" class="btn btn-dark w-100">View Details</a>
             </div>
         </div>
     `;

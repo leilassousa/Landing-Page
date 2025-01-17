@@ -11,6 +11,15 @@ function initializeCart() {
         localStorage.setItem(CART_STORAGE_KEY, JSON.stringify({ items: [] }));
     }
     console.log('Cart initialized:', getCart());
+    
+    // Add modal event listener
+    const cartModal = document.getElementById('cartModal');
+    if (cartModal) {
+        cartModal.addEventListener('show.bs.modal', () => {
+            console.log('Cart modal opening, updating UI');
+            updateCartUI();
+        });
+    }
 }
 
 // Get cart data
@@ -142,22 +151,58 @@ function renderCartItems(container) {
                 ` : ''}
             </div>
             <div class="d-flex align-items-center">
-                <button class="btn btn-sm btn-outline-secondary me-2" 
-                        onclick="window.cartModule.updateQuantity(${item.productId}, ${item.quantity - 1}, ${JSON.stringify(item.variant)})">
+                <button class="btn btn-sm btn-outline-secondary me-2 decrease-quantity" 
+                        data-product-id="${item.productId}"
+                        data-variant='${JSON.stringify(item.variant)}'>
                     -
                 </button>
                 <span class="mx-2">${item.quantity}</span>
-                <button class="btn btn-sm btn-outline-secondary ms-2" 
-                        onclick="window.cartModule.updateQuantity(${item.productId}, ${item.quantity + 1}, ${JSON.stringify(item.variant)})">
+                <button class="btn btn-sm btn-outline-secondary ms-2 increase-quantity"
+                        data-product-id="${item.productId}"
+                        data-variant='${JSON.stringify(item.variant)}'>
                     +
                 </button>
-                <button class="btn btn-sm btn-link text-danger ms-3" 
-                        onclick="window.cartModule.removeFromCart(${item.productId}, ${JSON.stringify(item.variant)})">
+                <button class="btn btn-sm btn-link text-danger ms-3 remove-item"
+                        data-product-id="${item.productId}"
+                        data-variant='${JSON.stringify(item.variant)}'>
                     <i class="bi bi-trash"></i>
                 </button>
             </div>
         </div>
     `).join('');
+
+    // Add event listeners to buttons
+    container.querySelectorAll('.decrease-quantity').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = parseInt(button.dataset.productId);
+            const variant = JSON.parse(button.dataset.variant);
+            const item = cart.items.find(i => i.productId === productId && 
+                JSON.stringify(i.variant) === JSON.stringify(variant));
+            if (item) {
+                updateQuantity(productId, item.quantity - 1, variant);
+            }
+        });
+    });
+
+    container.querySelectorAll('.increase-quantity').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = parseInt(button.dataset.productId);
+            const variant = JSON.parse(button.dataset.variant);
+            const item = cart.items.find(i => i.productId === productId && 
+                JSON.stringify(i.variant) === JSON.stringify(variant));
+            if (item) {
+                updateQuantity(productId, item.quantity + 1, variant);
+            }
+        });
+    });
+
+    container.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = parseInt(button.dataset.productId);
+            const variant = JSON.parse(button.dataset.variant);
+            removeFromCart(productId, variant);
+        });
+    });
 }
 
 // Initialize cart when module loads

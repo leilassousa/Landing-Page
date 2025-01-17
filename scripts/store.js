@@ -90,21 +90,10 @@ function filterProducts(category) {
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
-                    <div class="variant-selection mb-3 ${product.variants ? '' : 'd-none'}">
-                        <select class="form-select form-select-sm" data-product-id="${product.id}">
-                            ${product.variants ? product.variants.map((variant, index) => `
-                                <option value="${index}">Size: ${variant.size}, Color: ${variant.color}</option>
-                            `).join('') : ''}
-                        </select>
-                    </div>
                 </div>
-                <div class="card-footer d-flex gap-2">
-                    <button class="btn btn-dark flex-grow-1" onclick="window.location.href='product.html?id=${product.id}'">
+                <div class="card-footer">
+                    <button class="btn btn-dark w-100" onclick="window.location.href='product.html?id=${product.id}'">
                         View Details
-                    </button>
-                    <button class="btn btn-outline-dark add-to-cart-btn" 
-                            onclick="handleAddToCart(${JSON.stringify(product)}, 1, ${product.variants ? 'this.closest(\'.card\').querySelector(\'select\').selectedIndex' : 'null'})">
-                        <i class="bi bi-cart-plus"></i>
                     </button>
                 </div>
             </div>
